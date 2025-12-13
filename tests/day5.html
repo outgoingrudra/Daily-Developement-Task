@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, td{
+        border: 1px solid black;
+
+    }
+    
+    /* tr:nth-child(even){
+        background-color: aqua;
+    }  */
+
+    td:nth-child(even){
+        background-color: aqua;
+    }
+    td{
+        padding: 1px;
+        text-align: center;
+        
+    }
+    tr:hover{
+        background-color: gray;
+    }
+</style>
+<body>
+  <!-- colspan -->
+     <table>
+        <tr>
+            <td colspan="2">id</td>
+             <td colspan="3">Others</td>
+        </tr>
+        <tr>
+            <td>Roll</td>
+            <td>Registration</td>
+             <td>Name</td>
+             <td>age</td>
+             <td>Course</td>
+
+        </tr>
+        <tr>
+            <td>121</td>
+            <td>045</td>
+             <td> Xavier</td>
+             <td>22</td>
+             <td>Animation and VR</td>
+
+        </tr>
+     </table>
+     <br><br><br>
+
+     <table>
+        <tr> <th>Name</th> <th>company</th> <th>salary</th> yh    </tr>
+        <tr> <td>Nayan</td> <td>Amazon</td> <td>50000</td>  </tr>
+        <tr> <td>Vaishali</td> <td>Wipro</td> <td>60000</td>  </tr>
+        <tr> <td>Ankul <td>TCS </td> <td>5000</td>  </tr>
+        <tr> <td>Ramesh</td> <td>Google</td> <td>70000</td>  </tr>
+        <tr> <td>Roshni</td> <td>Flipkart</td> <td>65000</td>  </tr>
+   </table>
+
+
+
+
+ <br><br><br><br>
+   <table>
+    <tr>
+        <td>Name</td> <td>Age</td> <td>Class</td><td>section</td> <td>gender</td> <td>location</td> 
+    </tr>
+    <tr>
+        <td>Ankul</td> <td>15</td> <td>9</td><td>B</td> <td>M</td> <td>Kolkata</td> 
+    </tr>
+     <tr>
+        <td>Anushka</td> <td>15</td> <td>9</td><td>B</td> <td>F</td> <td>Kolkata</td> 
+    </tr>
+     <tr>
+        <td>Akshay</td> <td>16</td> <td>9</td><td>B</td> <td>M</td> <td>Kolkata</td> 
+    </tr>
+     <tr>
+        <td>Bristi</td> <td>16</td> <td>9</td><td>B</td> <td>F</td> <td>Kolkata</td> 
+    </tr>
+
+       <tr>
+        <td>Chandan</td> <td>15</td> <td>9</td><td>B</td> <td>M</td> <td>Barrackpore</td> 
+    </tr>
+
+       <tr>
+        <td>Chandrakanta</td> <td>16</td> <td>9</td><td>B</td> <td>F</td> <td>Dumdum</td> 
+    </tr>
+   </table>
+
+
+
+   <br><br><br><br>
+   <form action="">
+
+    Name <input type="text">
+   <br> <br>
+    <label for="naam">Name</label>
+    <input id="naam" type="text">
+
+    <label for="age">Age</label>
+    <input id="age" type="text">
+
+
+
+   <br><br><br><br>
+   <label for="cars">Choose Car : </label>
+
+   <select name="" id="cars">
+    <option value="">Select a car</option>
+       <option value="mercedes">mercedes</option>
+       <option value="BMW">BMW</option>
+       <option value="TATA">TATA</option>
+       <option value="Range Rover">Range Rover</option>
+   </select>
+    <br><br><br><br>
+
+    <label for="sub">Enter Subject</label>
+    <input type="text" id="sub" list="subjects">
+    <datalist id="subjects">
+        <option value="DSA">DSA</option>
+        <option value="DBMS">DBMS</option>
+        <option value="JAVA">JAVA</option>
+
+    </datalist>
+
+
+
+
+  <br><br><br><br>
+
+
+   </form>
+
+   <form action="">
+    <fieldset>
+        <legend>User Information</legend>
+         Name : <input type="text"> <br>
+         Mobile : <input type="text"> <br>
+         Email : <input type="text"> <br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Education</legend>
+        School: <input type="text"> <br>
+        University : <input type="text"> <br>
+         Email : <input type="text"> <br>
+    </fieldset>
+
+   </form>
+   <br><br><br><br><br><br><br><br><br><br>
+    
+</body>
+</html>
