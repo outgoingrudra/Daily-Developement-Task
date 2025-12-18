@@ -14,5 +14,41 @@
      Gender :   <label for="male">Male</label> <input type="radio" name="gender" value="male" id="male">   &nbsp; &nbsp; 
                 <label for="female">Female</label> <input type="radio" name="gender" value="female" id="female">
   
+     <h2>Your location</h2>
+
+
+       <div id="output">
+
+       </div>
+
+                
 </body>
+<script>
+    let output = document.getElementById("output")
+
+    function getLocation()
+    {
+        if(navigator.geolocation)
+       {
+        navigator.geolocation.getCurrentPosition( success , error )
+              
+       }
+       else{
+        output.innerHTML=" Browser is not providing the location"
+       }
+    }
+
+    function success (position){
+           
+        output.innerHTML = "Latitude :"+ position.coords.latitude + " <br> Longitude :"+ position.coords.longitude
+    }
+
+    function error()
+    {
+        output.innerHTML= " Something error occured !!"
+    }
+
+    getLocation()
+
+</script>
 </html>
