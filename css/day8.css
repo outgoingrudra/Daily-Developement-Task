@@ -1,3 +1,27 @@
 #ex{
     color: crimson;
 }
+
+
+#in{
+        color: brown;
+    }
+    .col{
+        color: aqua ;
+    }
+    .rgb{
+        color: rgb(93, 186, 133);
+
+    }
+    .rgba{
+        color: rgba(9, 60, 244, 0.6)
+    }
+    .hex{
+        color : #d0280a
+    }
+   .hex2{
+    color : #a23;
+   }
+   .hsl{
+     color :hsl(230, 70%, 52%)
+   }
