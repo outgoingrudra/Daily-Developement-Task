@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<style>
+   
+</style>
+<body>
+   <label for="file">Uploading:</label>
+   <progress id="file" value="00" max="100"></progress>
+   <br>
+   <summary>heyl</summary>
+   <details contenteditable="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ut.   </details>
+
+ <time>10:30 AM</time>
+<figure>
+  <img src="/images/work/nature.jpeg" alt="Sunset view">
+  <figcaption>Sunset at the beach</figcaption>
+</figure>
+
+
+<meter value="6" min="0" max="10"></meter>
+
+
+
+
+<main>
+  <article>
+    <h1>Learn HTML</h1>
+    <p>HTML is the backbone of the web.</p>
+  </article>
+
+  <aside>
+    <h3>Related Articles</h3>
+    <ul>
+      <li>CSS Basics</li>
+      <li>JavaScript Intro</li>
+    </ul>
+  </aside>
+</main>
+
+
+
+<a href="file.pdf" download>Download PDF</a>
+
+<input type="text" autofocus placeholder="Enter name">
+
+
+
+     
+
+
+    <script>
+       let x = document.getElementById("file")
+       function set(){
+        if(x.value <100)
+       {
+        x.value +=10
+       }
+       }
+       setInterval(set,1000)
+    </script>
+</body>
+</html>
