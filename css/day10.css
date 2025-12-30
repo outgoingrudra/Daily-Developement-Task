@@ -1,0 +1,30 @@
+p{
+    color: blue;
+    text-align: center;
+    /* font-weight:800 ; */
+    /* text-decoration: underline;
+    text-decoration-style: double; */
+
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    line-height: 35px;
+
+    font-style: normal;
+
+    font-size: 0.7rem;
+}
+
+
+
+a{
+    color: blue;
+    text-decoration-line: none;
+   
+}
+a:hover{
+    color: chartreuse;
+    cursor:move;
+
+    pointer ,auto , crosshair , wait , move
+}
+
