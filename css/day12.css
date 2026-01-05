@@ -1,0 +1,59 @@
+/* input{
+    
+    height: 30px;
+    width: 200px;
+    border: 1px solid black;
+    outline: none;
+    border-right: none;
+    margin-right: 0;    
+}
+button{
+    height: 33px;
+    border: 1px solid black;
+    border-left: none;
+    margin-left: 0;
+    background-color: white;
+    cursor: pointer;
+}
+
+.main{
+   
+    width: 300px;
+    margin: auto;
+
+} */
+
+.sub{
+    height: 400px;
+    width: 35vw;
+    background-color: yellow;
+    border: 1px solid black;
+    margin: 1px;
+    opacity: 1;
+}
+/* .main{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+} */
+
+.s{
+    background-color: red;
+    height: 60px;
+    width: 60px;
+       float: right;
+    border: 1px solid black;
+}
+.main{
+
+   background-color: yellow;
+   padding: 10px;
+   width: 100%;
+   height: 80px;
+}
+
+.abc p{
+    background-color: green;
+}
+
