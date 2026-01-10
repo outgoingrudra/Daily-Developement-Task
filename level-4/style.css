@@ -1,0 +1,83 @@
+
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Outfit:wght@100..900&family=Rubik+Gemstones&display=swap');
+
+
+*{
+     font-family: "Outfit", sans-serif;
+}
+
+
+header img{
+    width: 30px;
+    height: 30px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.head-f{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vh;
+   height: 60px;
+}
+header ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    width: 40vw;
+    font-size: large;
+    font-weight: 400;
+  
+    align-items: center;
+}
+
+header li{
+    cursor: pointer;
+}
+head-t{
+    height: 45px;
+}
+
+.login{
+    padding: 5px 10px 5px 10px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+     outline: 1px solid black;
+    outline-offset: 2px;
+}
+
+.signup{
+    padding: 5px 10px 5px 10px;
+    border: 2px solid black;
+    outline: 1px solid black;
+    outline-offset: 2px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+
+section{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+section div{
+    width: 50vw;
+}
+
+section button {
+    height: 50px;
+    width: 250px;
+    font-size: larger;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}

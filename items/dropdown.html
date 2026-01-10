@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+             width: 130px;
+             box-shadow: 0px 5px 10px gray;
+             display: none;
+            
+        }
+        .drop:hover .content{
+            display: block;
+        }
+
+        .cont{
+            display: none;
+        }
+        .drop:hover .cont{
+            display: block;
+        }
+        .drop {
+            width: 60px;
+        }
+        
+        ul{
+            list-style: none;
+
+        }
+        li{
+            width: 100px;
+            box-shadow: 2px 2px 2px black;
+            text-align: center;
+            
+        }
+        .show{
+            display: none;
+        }
+        .work:hover .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="drop">
+        Hover Me !!
+          <div class="content">
+            Hello from Rudra !
+          </div>
+    </div>
+    <br><br><br>
+    <div class="drop">
+        <img src="../images/work/nature.jpeg" alt="" width="50px">
+
+        <div class="cont">
+             <img src="../images//work//nature.jpeg"  alt="">
+             <h3> Nature </h3>
+        </div>
+    </div>
+    <br><br><br>
+
+    <div class="work">
+        Links
+         <div class="show">
+            <ul>
+                <li>List-1</li>
+                <li>List-1</li>
+                <li>List-1</li>
+                <li>List-1</li>
+                <li>List-1</li>
+               
+            </ul>
+         </div>
+    </div>
+    
+</body>
+</html>

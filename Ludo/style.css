@@ -1,0 +1,127 @@
+body{
+    background-color: rgb(13, 13, 68);
+}
+.outbox{
+    background-color: red;
+    height: 160px ;
+    width: 160px;
+    border: 1px solid black;
+     
+}
+.inbox{
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    margin-left: 30px;
+    margin-top: 30px;
+   border: 2px solid black;
+   border-radius: 5px;
+}
+.boxroundred{
+    height: 20px;
+    width: 30px;
+    
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.round1,.round2{
+    display: flex;
+}
+
+.rg{
+    display: flex;
+}
+.square{
+    height: 25px;
+    width: 20px;
+    border: 1px solid black;
+    background-color: white;
+}
+.line,.box1,.middleBox,.t1{
+    display: flex;
+}
+.square1{
+    height: 25px;
+    width: 25px;
+    border: 1px solid black;
+    background-color: white;
+}
+.tt{
+    height: 36px;
+    width: 32px;
+    border: 1px solid black;
+}
+ 
+.box{
+    border: 2px solid black;
+}
+.main{
+    border: 5px solid black;
+    box-shadow: 2px 2px 10px black;
+    margin-left: 550px;
+    margin-top: 150px;
+    width: 390px;
+    outline: 5px solid black;
+     
+}
+
+
+/* addded */
+
+.box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 64px; /* Same as 2x32px from original tt elements */
+    height: 72px; /* Same as 2x36px from original tt elements */
+    border: 2px solid black;
+    position: relative;
+}
+
+.triangle-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+/* Positioning and coloring the 4 triangles */
+.red-triangle {
+    top: 0;
+    left: 0;
+    border-right: 32px solid transparent;
+    border-bottom: 36px solid red;
+}
+
+.green-triangle {
+    top: 0;
+    right: 0;
+    border-left: 32px solid transparent;
+    border-bottom: 36px solid green;
+}
+
+.blue-triangle {
+    bottom: 0;
+    left: 0;
+    border-right: 32px solid transparent;
+    border-top: 36px solid blue;
+}
+
+.yellow-triangle {
+    bottom: 0;
+    right: 0;
+    border-left: 32px solid transparent;
+    border-top: 36px solid yellow;
+}
+
+/* Remove the old styles for t1 and tt since we're replacing them */
+.t1, .tt {
+    display: none; /* Or simply remove these styles entirely */
+}
