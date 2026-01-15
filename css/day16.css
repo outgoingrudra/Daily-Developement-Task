@@ -1,0 +1,35 @@
+/* 
+div{
+    position: relative;
+    top: 70px;
+    left: 70px;
+}  */
+
+
+div{
+    position:fixed;
+    top: 10px;
+    left: 20px;
+    color: red;
+    background-color: green;
+}
+ 
+
+
+ p{
+    height: 50vh;
+    width: 400px;
+    background-color: yellow;
+ }
+
+
+ section{
+    width: 80px;
+    margin-top: 10px;
+    background-color: aqua;
+    word-wrap: break-word;
+ }
+
+img{
+   visibility: hidden;
+}

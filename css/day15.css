@@ -1,0 +1,40 @@
+body{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+
+div{
+    height: 500px;
+    width: 500px;
+    border: 2px solid black;
+    background-image: linear-gradient(green,blue);
+}
+
+
+.hello{
+    height: 500px;
+    width: 500px;
+    border: 2px solid black;
+    background-image: linear-gradient(red,pink);
+
+}
+
+
+
+.hello2{
+    height: 500px;
+    width: 500px;
+    border: 2px solid black;
+    background-image: radial-gradient(red,pink)
+
+}
+
+.hello3{
+    height: 500px;
+    width: 500px;
+    border: 2px solid black;
+    background-image: radial-gradient(green,blue);
+
+}
