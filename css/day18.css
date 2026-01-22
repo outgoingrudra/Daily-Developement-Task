@@ -1,0 +1,52 @@
+.below{
+    height: 300px;
+    width: 500px;
+    background-color: yellow;
+    z-index: 2;
+}
+
+.above{
+    position: absolute;
+    height: 35px;
+    width: 50px;
+    left: 40px;
+    top: 40px;
+    background-color: #c61313;
+    text-align: center;
+    z-index: -1;
+}
+
+
+.prop{
+    background-color: blue;
+    width: 500px;
+    display: flex;
+    justify-content: left;
+
+}
+
+.prop div{
+    background-color: gray;
+    padding: 5px;
+    width: 30px;
+    
+    border: 1px solid black;
+    flex-grow: 1;
+  
+}
+img{
+     height: 200px;
+    width: 200px;
+}
+.img1{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.img2{
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+}
+
