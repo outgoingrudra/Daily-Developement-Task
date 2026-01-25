@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: orange;
+      padding: 20px;
+      font-size: large;
+    }
+
+    .poster img {
+      width: 500px;
+      border-radius: 20px;
+      outline: 1px solid orange;
+      outline-offset: 2px;
+    }
+    .poster {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 500px;
+      font-size: x-large;
+      font-weight: 600;
+    }
+    header div ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    .items {
+      height: 200px;
+      width: 250px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px orange;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .ques{
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+    .head{
+        font-size: x-large;
+        font-weight: 400;
+        color:orange;
+    }
+    .body{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    footer{
+        display: flex;
+        height: 200px;
+        justify-content: space-between;
+        background-color: orange;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 10px;
+
+    }
+  </style>
+  <body>
+    <header>
+      <div>Wonder</div>
+      <div>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    </header>
+
+    <section>
+      <div class="poster">
+        <div class="posText">Welcome to Wonder!</div>
+        <div class="posImage">
+          <img
+            src="https://www.sciencenews.org/wp-content/uploads/sites/2/2019/09/092719_mt_blackhole_feat.jpg?w=1030"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="ques">
+
+        <div class="items">
+          <div>
+            <div class="head">Why ?</div>
+            <div class="body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+              quisquam!
+            </div>
+          </div>
+        </div>
+
+        <div class="items">
+          <div>
+            <div class="head">How ?</div>
+            <div class="body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+              quisquam!
+            </div>
+          </div>
+        </div>
+
+        <div class="items">
+          <div>
+            <div class="head">When ?</div>
+            <div class="body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+              quisquam!
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+        <div>Wonder </div>
+        <div>
+            contact us
+        </div>
+    </footer>
+  </body>
+</html>

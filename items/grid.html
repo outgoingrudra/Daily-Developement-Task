@@ -3,29 +3,22 @@
 <head>
 <style>
 .container {
+  width: 500px;
+  height: 200px;
+  border: 2px solid black;
+
   display: grid;
-  grid-template-columns: repeat(5,1fr);
-  gap: 10px;
-  
+  grid-template-columns: 100px 100px;
+
+  justify-content: end;
 }
 
 .box {
-  background: #4caf50;
+  background: tomato;
   color: white;
-  padding: 30px;
-  text-align: center;
-  font-size: 20px;
-
+  display: grid;
+  place-items: center;
 }
-button{
-  margin-top: 10px;
-}
-
-button:hover{
-   
-   transform: rotate(34deg);
-  
-     }
 </style>
 </head>
 <body>
@@ -33,13 +26,7 @@ button:hover{
 <div class="container">
   <div class="box">1</div>
   <div class="box">2</div>
-  <div class="box">3</div>
-  <div class="box">4</div>
-  <div class="box">5</div>
-  <div class="box">6</div>
 </div>
-
-<button> Hello</button>
 
 </body>
 </html>
