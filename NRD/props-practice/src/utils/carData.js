@@ -1,24 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="head">
-      <div className="logo">
-        <img src="https://img.freepik.com/premium-vector/fast-free-food-delivery_1208773-925.jpg?semt=ais_hybrid&w=740&q=80" />
-      </div>
-      <div className="hlist">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-
- const cars =  [
+ export const cars =  [
         {
             "_id": "6955097c6e2682d4b97e9cf2",
             "owner": "6950fa5adaffd586e7c996af",
@@ -153,51 +133,3 @@ const Header = () => {
             "__v": 0
         }
     ]
-
-const SearchBar =()=>{
-    return (
-        <div className="search">
-            <input type="text" placeholder="Search" />
-            <button>Search</button>
-        </div>
-    )
-}
-const Carlayout = (props) => {
-    const {data} = props
-
-  return (
-    <div className="card">
-         Car-Name : {data["model"]} &nbsp; &nbsp; &nbsp;
-         Car-Location : {data["location"]} &nbsp; &nbsp; &nbsp;
-         Car-Price : {data["pricePerDay"]}
-      
-      </div>
-)}
-
-const Itemlist =()=>{
-    return (
-        <div>
-            {
-                cars.map((car,index)=><Carlayout data = {car} key={index}/>)
-            }
-
-
-        </div>
-    )
-}
-const AppLayout = () => {
-  return (
-    <div className="body">
-      <Header />
-      <br></br>
-      <SearchBar/>
-      <hr></hr>
-      <Itemlist/>
-
-      Hello From React
-    </div>
-  );
-};
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
