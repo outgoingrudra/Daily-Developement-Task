@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotate</title>
+
+  <style>
+    #move{
+      font-size: 50px;
+      margin: 20px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <span id="move">→</span>
+
+  <script>
+    let item = document.getElementById('move');
+    let deg = 0;
+
+    setInterval( () => {
+      deg++;
+      item.style.transform = `rotate(${deg}deg)`;
+    }, 10);
+    
+   
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.logo img{
+    width: 100px;
+}
+.logo img:hover{
+    box-shadow: 5px 5px 5px gray, 5px 5px 5px gray;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    
+}
+
+.head ul{
+    display: flex;
+    width: 300px;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+
+
+}
+.head li{
+    cursor: pointer;
+}
