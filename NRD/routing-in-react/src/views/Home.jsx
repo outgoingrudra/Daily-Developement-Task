@@ -1,3 +1,4 @@
+import Parent from "../components/Parent";
 import UserClass from "../components/UserClass";
 import UserClass2 from "../components/UserClass2";
 import UserClass3 from "../components/UserClass3";
@@ -10,6 +11,7 @@ const Home =()=>{
         <UserClass/>
         <UserClass2 name="Rudra" age={25}/>
         <UserClass3/>
+        <Parent/>
         </div>
     )
 }
