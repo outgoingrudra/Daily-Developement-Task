@@ -1,4 +1,5 @@
 import { HEAD_LINK } from "../utils/constants";
+import Login from "./Login";
 
  const Header = () => {
   return (
@@ -10,6 +11,7 @@ import { HEAD_LINK } from "../utils/constants";
         <ul>
           <li>Home</li>
           <li>About</li>
+          <li><Login/></li>
         </ul>
       </div>
     </div>
