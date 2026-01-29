@@ -1,0 +1,35 @@
+q1> What is javascript ?
+
+     -javascript is a programming language which is used for creating websites . it is used for  both client    side scripting  and server side scripting . 
+
+
+q2> what are the features of javascript ?
+
+    - used in both frontend and backend 
+    - provided Object Oriented programming
+    - interpreter and JIT compiler both are used 
+    - dynamically typed language 
+
+
+
+q3> diff betn let , var and const ? 
+
+
+var ->  has function scope , and it value can be redeclared and can be assigned 
+let ->  has block scope , and it value can't be redeclared but can be reassigned 
+const ->  has block scope , and it value can't be redeclared and re assigned 
+
+
+q4> what are data-types of js ? 
+javascript data-types -> Number , String , boolean , null , undefined , symbol , object , bigint 
+
+
+
+q5> diff betn undefined and null ? 
+undefined -> when u declare a variable but don't assign any value to it 
+ null ->      intentional absence of any value 
+
+
+
+
+
