@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
+import Home from "./src/Home"
 
 
 const heading = React.createElement("h1",{id:"heading"}, " Hello from Parcel !")
@@ -26,6 +27,7 @@ const Welcome = ()=>{
         <div>
             <h1> Welcome to React !</h1>
             <p> Hello from React !</p>
+            <Home/>
         </div>
     )
 }
