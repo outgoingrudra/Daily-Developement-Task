@@ -21,8 +21,8 @@ console.log(y.trim())   //hi
 console.log(x.repeat(3))  //Hello Hello Hello
 
 a= "Rudra"
-console.log(a.replace('a','e'))  //sempa nayak replace 1st a to e
-console.log(a.replaceAll('a','e'))  //sempe neyek  replace all a to e
+console.log(a.replace('a','e'))  // replace 1st a to e
+console.log(a.replaceAll('a','e'))  //  replace all a to e
 
 p="12 44 56 77 3 67"
 console.log(p.slice(" "))
