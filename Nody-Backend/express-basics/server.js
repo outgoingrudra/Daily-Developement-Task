@@ -1,13 +1,15 @@
 const express = require("express")
 
+
 const app = express()
-app.use(express.json())
-app.post("/signup",(req,res)=>{
-    console.log(req.body);
 
-    res.send("Data received !")
-    
-})
+app.listen(3000)
 
-app.listen(9000,()=>{console.log("App running !");
-})
+app.use(func)
+
+
+function func(req,res){
+    let x = 10
+    let y = 30
+    res.send("Hello from Callback func "+(x+y))
+}
