@@ -26,3 +26,34 @@ p1.details()
 
 // class Music 
 // methods - start ,pause , details 
+
+
+class Music {
+    static total =0
+    constructor(name, file, singer, description = "No Description 🙅🏻") {
+        this.name = name
+        this.file = file
+        this.singer = singer
+        this.description = description
+        Music.total += 1
+    }
+
+    details() {
+        console.log("Song Name : "+this.name)
+        console.log("Singer : " + this.singer)
+        console.log("Description :"+this.description)
+    }
+
+}
+
+
+// Shop class , Bird class , Student class
+
+playlist = [
+new Music("ABCD", "xyz", "Shreya"),
+new Music("Har", "xyz", "Sonu"),
+new Music("Ka", "xyz", "Atif")
+]
+
+
+console.log("Total Songs : "+Music.total)
