@@ -9,8 +9,6 @@ function isEven( x ){
     return a 
 }
 // console.log(isEven(3))
-
-
 // arrow functions 
 
 var  Bye= () => {
