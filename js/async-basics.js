@@ -1,9 +1,11 @@
 
-console.log("Starting time : "+new Date())
+let x = 1
+let myInterval = setInterval(()=>{
+    console.log("Interval -> "+x)
+    x++
+    if(x==5)
+        clearInterval(myInterval)
+},3000)
 
-setTimeout(() => {
-    console.log("Waited for 5 second ")
-    console.log("Finishing time : "+new Date())
-}, 5000);
 
-console.log("ended !")
+
