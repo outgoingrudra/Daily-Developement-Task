@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+    .clock{
+        background-image: linear-gradient(red,orange);
+        height: 200px;
+        width: 800px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px black , -5px -5px 5px black;
+        font-size: xxx-large;
+        color: white;
+    }
+    
+</style>
+<body>
+    <div class="clock">
+        <div>
+            <span id="hour">00</span>
+            <span>:</span>
+            <span id="min">00</span>
+            <span>:</span>
+            <span id="sec">00</span>
+        </div>
+    </div>   
+</body>
+<script>
+    function updater(){
+        let date = new Date()
+         document.getElementById("hour").innerHTML = date.getHours()
+         document.getElementById("min").innerHTML = date.getMinutes()
+         document.getElementById("sec").innerHTML = date.getSeconds()
+
+    }
+   setInterval(() => { updater() }, 1000);
+
+</script>
+</html>
