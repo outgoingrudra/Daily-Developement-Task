@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+         Fruit : <span id="fruit">Mango</span><br>
+        <button onclick="update()">Edit</button>
+        <br><br>
+        <div>
+            <input type="text" id="name" placeholder="Enter Name :">
+            <button onclick="AddName()">Add Name</button>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let fruit = document.getElementById("fruit")
+    
+    function update(){
+        let x = prompt("Enter Fruit Name ")
+        fruit.innerHTML = x;
+    }
+
+    function AddName(){
+        let data = document.getElementById("name").value   
+        alert("Name Added : "+data)
+    }
+</script>
+</html>
+
+
+New User Added ! 
+Name : Rudra Verma
+Age : 21
+
+----------------------
