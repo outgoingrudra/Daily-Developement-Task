@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #abc{
+        background-color:red;
+        margin: 10px;
+        width: auto;
+    }
+    
+</style>
+<body>
+    Fruits
+    <ul id="items">
+
+    </ul> 
+    
+</body>
+<script>
+    let items = ["Apple","Banana","mango",'pineapple']
+    let list = document.getElementById("items")
+
+    for(let i =0;i<items.length;i++){
+        list.innerHTML += "<li id='abc'>"+items[i]+"</li>"
+       
+    }
+
+    
+
+
+</script>
+ 
+
+</html>
