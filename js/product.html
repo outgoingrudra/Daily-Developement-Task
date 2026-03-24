@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .product{
+        border: 1px solid black;
+        padding: 10px;
+        margin: 5px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+    .product >div{
+        width: 100%;
+    }
+    .product img{
+        width: 50px;
+    }
+    .product h3{
+        color: green;
+    }
+    .product p{
+        color: gray;
+    }
+</style>
+<body>
+    <h1>Product</h1>
+    <div id="items">
+
+    </div>
+   
+    
+
+
+  
+    
+</body>
+<script>
+    
+    fetch("https://fakestoreapi.com/products").then(res => res.json()).then(data => executer(data))
+
+
+
+    function executer(d){
+        console.log(d)
+        let x = document.getElementById("items")
+        for(let i = 0;i<d.length;i++){
+            x.innerHTML+= '<div class="product"><div><h3>'+(i+1)+". "+d[i].title+'</h3><h6>'+d[i].category+'</h6><p>'+d[i].description+'</p> <button>Add to Cart</button></div><img src="'+d[i].image+'"/></div>'
+        }
+
+    }
+
+
+
+    
+    
+ 
+</script>
+</html>
+
+
+
+//array - city name 
+Kolkata
+Mumbai
+cheenai
+
+
+//array - Name
+//array - Mobile
+e.g - Rudra - 6291985921
+
+
+// array -[c,java,cpp]
+//array - [os,server,gaming]
+e.g- c used in os 
+     java used in server 
