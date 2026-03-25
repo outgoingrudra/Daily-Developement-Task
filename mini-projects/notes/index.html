@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Note-APP</h3>
+    <div>
+        <legend>ADD NOTE</legend>
+        <label for="">Title</label>
+        <input type="text" id="title"><br><br>
+        <label for="">Content</label>
+        <textarea name="" id="content"></textarea>
+        <button onclick="adder()">ADD</button>
+    </div>
+    <hr>
+
+    <div id="show">
+
+       
+
+    </div>
+    <script>
+        let notes =[]
+        function adder(){
+            let x = document.getElementById("title").value
+            let y = document.getElementById("content").value
+            notes.push({
+                title : x, content :y
+            })
+
+            shower()
+        }
+        function shower(){
+            let area = document.getElementById("show")
+            area.innerHTML =""
+
+            for(let i=0;i<notes.length ;i++){
+                area.innerHTML+= `<div><h3>${notes[i].title}</h3><p>${notes[i].content}</p></div>`
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>
