@@ -30,6 +30,8 @@
             notes.push({
                 title : x, content :y
             })
+            document.getElementById("title").value = ""
+            document.getElementById("content").value = ""
 
             shower()
         }
@@ -38,8 +40,14 @@
             area.innerHTML =""
 
             for(let i=0;i<notes.length ;i++){
-                area.innerHTML+= `<div><h3>${notes[i].title}</h3><p>${notes[i].content}</p></div>`
+                area.innerHTML+= `<div><h3>${notes[i].title}</h3><p>${notes[i].content}</p><button onclick ='deleted(${i})'>Delete</button></div>`
             }
+
+        }
+
+        function deleted(i){
+           notes.splice(i,1)
+           shower()
 
         }
 
