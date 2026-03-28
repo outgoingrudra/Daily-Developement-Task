@@ -1,57 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h3>Note-APP</h3>
-    <div>
-        <legend>ADD NOTE</legend>
-        <label for="">Title</label>
-        <input type="text" id="title"><br><br>
-        <label for="">Content</label>
-        <textarea name="" id="content"></textarea>
-        <button onclick="adder()">ADD</button>
+  </head>
+  <style>
+    .upper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="upper">
+      <div>
+        <h3>Note-APP</h3>
+        <div>
+          <legend>ADD NOTE</legend>
+          <label for="">Title</label>
+          <input type="text" id="title" /><br /><br />
+          <label for="">Content</label>
+          <textarea name="" id="content"></textarea>
+          <button onclick="adder()">ADD</button>
+        </div>
+      </div>
     </div>
-    <hr>
+    <hr />
 
-    <div id="show">
-
-       
-
-    </div>
+    <div id="show"></div>
     <script>
-        let notes =[]
-        function adder(){
-            let x = document.getElementById("title").value
-            let y = document.getElementById("content").value
-            notes.push({
-                title : x, content :y
-            })
-            document.getElementById("title").value = ""
-            document.getElementById("content").value = ""
+      let notes = [
+        {
+          title: "Java",
+          description: "dummy-1212",
+        },
+        {
+          title: "Python",
+          description: "dummy-222222222212",
+        },
+      ];
 
-            shower()
+      function populate() {
+        let area = document.getElementById("show");
+        area.innerHTML = "";
+        for (let i = 0; i < notes.length; i++) {
+          area.innerHTML += `<div>
+            <h3 style="color: green;font-size: x-large;">${notes[i].title}</h3>
+            <p>${notes[i].description}</p>
+            <button onclick='del(${i})' class='del-btn' style="background-color: red; font-size: large;">Delete</button>
+        </div>
+        <hr>`;
         }
-        function shower(){
-            let area = document.getElementById("show")
-            area.innerHTML =""
+      }
 
-            for(let i=0;i<notes.length ;i++){
-                area.innerHTML+= `<div><h3>${notes[i].title}</h3><p>${notes[i].content}</p><button onclick ='deleted(${i})'>Delete</button></div>`
-            }
+      populate();
 
+      function adder() {
+        let x = document.getElementById("title").value;
+        let y = document.getElementById("content").value;
+
+        notes.push({ title: x, description: y });
+        populate();
+      }
+
+      function del(x) {
+        temp = [];
+        let j = 0;
+        for (let i = 0; i < notes.length; i++) {
+          if (i != x) {
+            temp[j++] = notes[i];
+          }
         }
-
-        function deleted(i){
-           notes.splice(i,1)
-           shower()
-
-        }
-
-
+        notes = temp;
+        populate();
+      }
     </script>
-</body>
+  </body>
 </html>

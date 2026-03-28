@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="bg-[#0a1024] h-screen text-[#0066ff]">
+        <div class="upper">
+            <h2 class="text-2xl font-bold text-center font-serif">Notes App</h2>
+            
+            <div class="text-center">
+                <input type="text" id="title" placeholder="Add Title here......." class="bg-[#0a1024] border-gray-600 border-2 h-10 w-96 p-2 rounded-lg mt-5 mb-5"><br>
+                <textarea name="" id="content" class="bg-[#0a1024] border-gray-600 border-2 h-40 w-96 p-2 rounded-lg " placeholder="Add Description here ......"></textarea><br>
+                <button class="bg-[#0066ff] text-white h-10 w-20 font-bold font-serif rounded-lg hover:bg-blue-700 hover:shadow-lg  outline outline-blue-700 outline-offset-1 transition-shadow duration-300 mt-5" onclick="adder()">Add</button>
+                
+            </div>
+            <hr class="mt-5 text-gray-600">
+            <div id="show" class="flex flex-wrap gap-5">
+
+              
+
+              
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+     let notes = [
+        {
+          title: "Java",
+          description: "dummy-1212",
+        },
+        {
+          title: "Python",
+          description: "dummy-222222222212",
+        },
+      ];
+
+      function populate() {
+        let area = document.getElementById("show");
+        area.innerHTML = "";
+        for (let i = 0; i < notes.length; i++) {
+          area.innerHTML +=`  <div class="border-2 w-80 m-3 ">
+                    <h4 class="text-center text-white text-2xl ">${notes[i].title}</h4>
+                    <p class="text-gray-500 text-center">${notes[i].description}</p>
+                   <div class="text-right m-2">
+                     <button onclick='del(${i})'><img class="w-6  bg-red-600 rounded-md " src="trash.png" alt=""></button>
+                   </div>
+                </div>
+`;
+        }
+      }
+
+      populate();
+
+      function adder() {
+        let x = document.getElementById("title").value;
+        let y = document.getElementById("content").value;
+
+        notes.push({ title: x, description: y });
+        populate();
+      }
+
+      function del(x) {
+        temp = [];
+        let j = 0;
+        for (let i = 0; i < notes.length; i++) {
+          if (i != x) {
+            temp[j++] = notes[i];
+          }
+        }
+        notes = temp;
+        populate();
+      }
+</script>
+</html>
