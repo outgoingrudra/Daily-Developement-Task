@@ -7,17 +7,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body>
-    <div class="bg-[#0a1024] h-screen text-[#0066ff]">
+<body class="bg-[#0a1024] ">
+    <div class="h-screen text-[#0066ff]">
         <div class="upper">
             <h2 class="text-2xl font-bold text-center font-serif">Notes App</h2>
             
             <div class="text-center">
-                <input type="text" id="title" placeholder="Add Title here......." class="bg-[#0a1024] border-gray-600 border-2 h-10 w-96 p-2 rounded-lg mt-5 mb-5"><br>
-                <textarea name="" id="content" class="bg-[#0a1024] border-gray-600 border-2 h-40 w-96 p-2 rounded-lg " placeholder="Add Description here ......"></textarea><br>
-                <button class="bg-[#0066ff] text-white h-10 w-20 font-bold font-serif rounded-lg hover:bg-blue-700 hover:shadow-lg  outline outline-blue-700 outline-offset-1 transition-shadow duration-300 mt-5" onclick="adder()">Add</button>
+                <input type="text" id="title" placeholder="Add Title here......." class="bg-[#0a1024] text-white border-gray-600 border-2 h-10 w-96 p-2 rounded-lg mt-5 mb-5"><br>
+                <textarea name="" id="content" class="bg-[#0a1024] border-gray-600 border-2 h-40 w-96 p-2 text-white rounded-lg " placeholder="Add Description here ......"></textarea><br>
+                <p id="warn" class="text-red-600"></p>
+                <div id="btn">
+                  <button class="bg-[#0066ff] text-white h-10 w-20 font-bold font-serif rounded-lg hover:bg-blue-700 hover:shadow-lg  outline outline-blue-700 outline-offset-1 transition-shadow duration-300 mt-5" onclick="adder()">Add</button>
+                </div>
                 
             </div>
+            
             <hr class="mt-5 text-gray-600">
             <div id="show" class="flex flex-wrap gap-5">
 
@@ -34,22 +38,30 @@
         {
           title: "Java",
           description: "dummy-1212",
+          star:false
         },
         {
           title: "Python",
           description: "dummy-222222222212",
+          star:false
         },
       ];
 
       function populate() {
         let area = document.getElementById("show");
         area.innerHTML = "";
+
+        if(notes.length==0){
+          area.innerHTML = `<div class="flex justify-center items-center w-full"><p class="text-gray-500 text-lg">No notes are there !!</p></div>`
+        }
         for (let i = 0; i < notes.length; i++) {
-          area.innerHTML +=`  <div class="border-2 w-80 m-3 ">
-                    <h4 class="text-center text-white text-2xl ">${notes[i].title}</h4>
+          area.innerHTML +=`  <div class="border-2 border-[#0066ff] ${notes[i].star ? " outline outline-yellow-400 outline-offset-2 ":""} rounded-lg w-80   m-3 ">
+                    <h4 class="text-center text-white text-2xl ">${!notes[i].star ?"🔖":"💫"} ${notes[i].title}</h4>
                     <p class="text-gray-500 text-center">${notes[i].description}</p>
-                   <div class="text-right m-2">
-                     <button onclick='del(${i})'><img class="w-6  bg-red-600 rounded-md " src="trash.png" alt=""></button>
+                   <div class="flex justify-between items-end m-2">
+                     <button onclick='edit(${i})'><img class="w-6 text-blue-800  rounded-md " src="edit.png" alt=""></button>
+                     <button onclick='star(${i})'><img class="w-6 text-blue-800  rounded-md " src="${!notes[i].star ? "like.png" : "liked.png"}" alt=""></button>
+                      <button onclick='del(${i})'><img class="w-6   rounded-md " src="trash.png" alt=""></button>
                    </div>
                 </div>
 `;
@@ -61,9 +73,17 @@
       function adder() {
         let x = document.getElementById("title").value;
         let y = document.getElementById("content").value;
+        let warn = document.getElementById("warn")
+        warn.innerHTML =""
+        if(x=="" || y==""){
+          warn.innerHTML ="Enter Title and Content"
+          return
+        }
 
-        notes.push({ title: x, description: y });
+        notes.push({ title: x, description: y , star : false});
         populate();
+          document.getElementById("title").value =''
+          document.getElementById("content").value =''
       }
 
       function del(x) {
@@ -77,5 +97,40 @@
         notes = temp;
         populate();
       }
+
+      function edit(i){
+         document.getElementById("title").value =notes[i].title
+         document.getElementById("content").value =notes[i].description
+
+         document.getElementById("btn").innerHTML = `<button class="bg-[#0066ff] text-white h-10 w-20 font-bold font-serif rounded-lg hover:bg-blue-700 hover:shadow-lg  outline outline-blue-700 outline-offset-1 transition-shadow duration-300 mt-5" onclick="EditApply(${i})">Edit</button>`
+
+      }
+
+      function EditApply(i){
+
+        let x = document.getElementById("title").value;
+        let y = document.getElementById("content").value;
+        let warn = document.getElementById("warn")
+        warn.innerHTML =""
+        if(x=="" || y==""){
+          warn.innerHTML ="Enter Title and Content"
+          return
+        }
+        notes[i].title = x
+        notes[i].description = y
+
+          document.getElementById("btn").innerHTML = ` <button class="bg-[#0066ff] text-white h-10 w-20 font-bold font-serif rounded-lg hover:bg-blue-700 hover:shadow-lg  outline outline-blue-700 outline-offset-1 transition-shadow duration-300 mt-5" onclick="adder()">Add</button>`
+
+          populate()
+          document.getElementById("title").value =''
+          document.getElementById("content").value =''
+      }
+
+      function star(i){
+        notes[i].star =!notes[i].star
+        populate()
+      }
 </script>
 </html>
+
+

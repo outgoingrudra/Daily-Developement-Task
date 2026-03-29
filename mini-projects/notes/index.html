@@ -23,10 +23,11 @@
           <input type="text" id="title" /><br /><br />
           <label for="">Content</label>
           <textarea name="" id="content"></textarea>
-          <button onclick="adder()">ADD</button>
+         <div id="formbtn"> <button id="btn" onclick="adder()">ADD</button></div>
         </div>
       </div>
     </div>
+   <center> <p style="color: red;" id="warn"></p></center>
     <hr />
 
     <div id="show"></div>
@@ -35,10 +36,12 @@
         {
           title: "Java",
           description: "dummy-1212",
+          star : false ,
         },
         {
           title: "Python",
           description: "dummy-222222222212",
+           star : false ,
         },
       ];
 
@@ -50,6 +53,8 @@
             <h3 style="color: green;font-size: x-large;">${notes[i].title}</h3>
             <p>${notes[i].description}</p>
             <button onclick='del(${i})' class='del-btn' style="background-color: red; font-size: large;">Delete</button>
+            <button onclick='edit(${i})' class='del-btn' style="background-color: green; font-size: large;">Edit</button>
+            <button  onclick='star(${i})' class='del-btn' style="background-color: orange; font-size: large;">${notes[i].star ? "UnStar": "Star"}</button>
         </div>
         <hr>`;
         }
@@ -61,8 +66,15 @@
         let x = document.getElementById("title").value;
         let y = document.getElementById("content").value;
 
-        notes.push({ title: x, description: y });
+        if(x=="" || y=="") {
+          document.getElementById("warn").innerHTML = "Enter Title and Description"
+          return 
+        }
+
+        notes.push({ title: x, description: y , star : false });
         populate();
+        document.getElementById("title").value="";
+        document.getElementById("content").value="";
       }
 
       function del(x) {
@@ -76,6 +88,33 @@
         notes = temp;
         populate();
       }
-    </script>
+
+      function edit(i){
+        document.getElementById("title").value = notes[i].title
+        document.getElementById("content").value = notes[i].description
+
+        document.getElementById('formbtn').innerHTML= `<button onclick="update(${i})">Edit</button>`
+       
+      }
+
+      function update(i){
+        notes[i].title = document.getElementById("title").value
+        notes[i].description = document.getElementById("content").value
+
+        document.getElementById('formbtn').innerHTML=` <button id="btn" onclick="adder()">ADD</button>`
+
+        populate()
+        document.getElementById("title").value="";
+        document.getElementById("content").value="";
+
+
+      }
+   
+     function star(i){
+         notes[i].star = !notes[i].star
+         populate()
+     }
+   </script>
   </body>
 </html>
+
