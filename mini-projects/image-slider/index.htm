@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Image Crossfade | Pure CSS Transition</title>
+    <!-- TailwindCSS for styling only, not for transition logic -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* CRITICAL: Smooth transition styles - no shortcuts, pure crossfade */
+        .image-stack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #18181b; /* fallback same as bg-zinc-900 */
+        }
+        
+        .transition-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+            /* ease-in-out gives smooth acceleration/deceleration for natural crossfade */
+            opacity: 0;
+            will-change: opacity;
+            backface-visibility: hidden;
+            /* prevents tiny flicker on some browsers during transition */
+        }
+        
+        .transition-image.visible {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .transition-image.hidden {
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        /* optional: subtle shadow & smoothness for container */
+        #images {
+            position: relative;
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* ensure no extra scroll or overflow */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* indicator dots styling - just for user feedback, not affecting transition */
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+        
+        .dot.active-dot {
+            background-color: #3b82f6;
+            width: 24px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen">
+    <div class="container mx-auto px-4 py-6 max-w-6xl">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-2 tracking-tight">Smooth Crossfade Gallery</h1>
+        <p class="text-center text-gray-500 mb-5">✨ Seamless transition | No shortcuts — pure opacity crossfade ✨</p>
+        
+        <!-- Image container with fixed height (h-150 from tailwind = 37.5rem / 600px) -->
+        <div class="mt-3 bg-zinc-900 w-full h-150 rounded-2xl overflow-hidden shadow-2xl" id="images">
+            <!-- dynamic image stack will be injected here -->
+        </div>
+        
+        <!-- Simple dot indicators to show current image (purely visual) -->
+        <div class="flex justify-center items-center gap-3 mt-6">
+            <div id="dots-indicator" class="flex gap-2 items-center"></div>
+        </div>
+        <p class="text-center text-sm text-gray-500 mt-5">
+            🔄 Images change every 3 seconds • Smooth crossfade transition
+        </p>
+    </div>
+
+    <script>
+        // --------------------------------------------------------------
+        // PURE SMOOTH TRANSITION: using two overlapping images
+        // No shortcuts (no innerHTML replacement, no sudden src changes)
+        // Each image fades in/out gracefully with CSS transition.
+        // --------------------------------------------------------------
+        
+        // Image URLs (exactly as provided, no extra changes)
+        const images = [
+            "https://static.vecteezy.com/system/resources/thumbnails/070/998/259/small/floral-arrangement-against-blue-background-photo.jpg",
+            "https://static.vecteezy.com/system/resources/thumbnails/017/188/879/small/geometric-dark-background-with-gradient-shapes-composition-good-for-posters-design-illustration-vector.jpg",
+            "https://thumbs.dreamstime.com/b/incredibly-beautiful-sunset-sun-lake-sunrise-landscape-panorama-nature-sky-amazing-colorful-clouds-fantasy-design-115177001.jpg"
+        ];
+        
+        // Get container element
+        const container = document.getElementById("images");
+        // Clear any existing content (if any)
+        container.innerHTML = "";
+        
+        // Create a wrapper div that holds both image elements (stack)
+        const stackDiv = document.createElement("div");
+        stackDiv.className = "image-stack";
+        container.appendChild(stackDiv);
+        
+        // Create two image elements for crossfade
+        const imgTop = document.createElement("img");
+        const imgBottom = document.createElement("img");
+        
+        // Set common attributes & classes
+        imgTop.classList.add("transition-image");
+        imgBottom.classList.add("transition-image");
+        
+        // Initially set first image to be visible (opacity 1)
+        // We'll set src for both: bottom image will be first image, top image will be second image
+        // But strategy: Keep track of which image is currently "visible" (opacity=1)
+        // The other image will be preloaded with next src but hidden.
+        
+        // Set initial image sources
+        let currentIdx = 0;         // index currently displayed
+        let nextIdx = 1;            // next image index to fade in
+        
+        // Preload first two images
+        imgBottom.src = images[currentIdx];   // bottom becomes visible initially
+        imgTop.src = images[nextIdx];          // top preloaded with next image but hidden
+        
+        // Set initial visibility: bottom visible, top hidden
+        imgBottom.classList.add("visible");
+        imgBottom.classList.remove("hidden");
+        imgTop.classList.add("hidden");
+        imgTop.classList.remove("visible");
+        
+        // Append both to stack (order doesn't matter for absolute positioning, but z-index managed by visible class)
+        stackDiv.appendChild(imgBottom);
+        stackDiv.appendChild(imgTop);
+        
+        // For better z-index handling: ensure that visible image gets higher z-index via CSS
+        // Our CSS already defines .transition-image.visible { z-index: 2; opacity:1 }
+        // and .transition-image.hidden { z-index: 1; opacity:0 }
+        // So whichever has 'visible' class is on top and fully opaque.
+        
+        // Function to perform smooth crossfade to next image
+        let isTransitioning = false;   // prevent overlapping transitions
+        let intervalId = null;
+        
+        // Helper: update dot indicators based on current index
+        function updateDots(currentIndex) {
+            const dotsContainer = document.getElementById("dots-indicator");
+            if (!dotsContainer) return;
+            
+            // Clear existing dots
+            dotsContainer.innerHTML = "";
+            // Create new dots
+            for (let i = 0; i < images.length; i++) {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                if (i === currentIndex) {
+                    dot.classList.add("active-dot");
+                }
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
+        // Function to swap images with smooth crossfade
+        function crossfadeToNext() {
+            // Prevent multiple rapid transitions (in case interval overlaps)
+            if (isTransitioning) return;
+            
+            // Determine next image index (circular)
+            const newNextIdx = (nextIdx + 1) % images.length;
+            
+            // Identify currently visible image and the hidden one
+            let visibleImg, hiddenImg;
+            if (imgBottom.classList.contains("visible")) {
+                visibleImg = imgBottom;
+                hiddenImg = imgTop;
+            } else {
+                visibleImg = imgTop;
+                hiddenImg = imgBottom;
+            }
+            
+            // The hidden image will be prepared to show the NEXT image (new image to fade in)
+            // We need to load the new src into hiddenImg BEFORE starting transition
+            const nextImageUrl = images[nextIdx];
+            
+            // If the hidden image already has the correct src, fine; else set it.
+            // But we also must ensure that the image is fully loaded? To avoid flicker we preload,
+            // but even if it's loading, the transition will still be smooth because opacity transition
+            // works on existing image. However if we change src mid-transition it might be abrupt.
+            // So best practice: preload image into hidden image slightly before transition? But we already
+            // preload one step ahead. At initialization we preloaded next image. After crossfade,
+            // we'll preload the upcoming one.
+            
+            // Set the hidden image's src to the new image (nextIdx)
+            // BUT to avoid flickering due to loading time, we only set src if it's different.
+            if (hiddenImg.src !== nextImageUrl) {
+                hiddenImg.src = nextImageUrl;
+            }
+            
+            // Mark transition start to prevent overlapping
+            isTransitioning = true;
+            
+            // Now perform crossfade: make hidden image visible, and visible image hidden
+            // We swap classes: visibleImg becomes hidden, hiddenImg becomes visible
+            // The CSS transition will smoothly crossfade because opacity changes over 1s.
+            
+            // Add transitionend listener to handle cleanup and update indices AFTER transition completes
+            const onTransitionEnd = function(e) {
+                // Ensure we only handle the opacity transition end and from the element that changed
+                if (e.target === hiddenImg && e.propertyName === "opacity") {
+                    // After transition finishes, update our current index and next index
+                    currentIdx = nextIdx;
+                    nextIdx = newNextIdx;
+                    
+                    // Now the previously hidden image is now fully visible.
+                    // Also update dot indicators
+                    updateDots(currentIdx);
+                    
+                    // Preload the next upcoming image into the now-hidden image (which was previously visible)
+                    // After transition, visibleImg is now hidden (opacity 0). We will set its src for the next cycle.
+                    const upcomingImageUrl = images[nextIdx];
+                    // The image that is now hidden (old visibleImg) should be preloaded with the next-to-show image
+                    if (visibleImg.src !== upcomingImageUrl) {
+                        visibleImg.src = upcomingImageUrl;
+                    }
+                    
+                    // Clean up event listener and reset transitioning flag
+                    hiddenImg.removeEventListener("transitionend", onTransitionEnd);
+                    isTransitioning = false;
+                }
+            };
+            
+            // Attach event listener to hiddenImg (the one that becomes visible) to know when fade-in completes
+            hiddenImg.addEventListener("transitionend", onTransitionEnd);
+            
+            // Apply class swap to trigger the transition
+            // Remove visible class from currently visible image, add hidden
+            visibleImg.classList.remove("visible");
+            visibleImg.classList.add("hidden");
+            
+            // Make hidden image visible: remove hidden, add visible
+            hiddenImg.classList.remove("hidden");
+            hiddenImg.classList.add("visible");
+            
+            // Edge-case: if transitionend doesn't fire (e.g., if image or browser quirk) set a timeout backup
+            // But modern browsers fire reliably. However we add a safety timeout (1.2s) to reset flag just in case.
+            setTimeout(() => {
+                if (isTransitioning) {
+                    // force reset if transition never completed (rare)
+                    isTransitioning = false;
+                    // Also ensure classes are consistent
+                    const nowVisible = imgBottom.classList.contains("visible") ? imgBottom : imgTop;
+                    const nowHidden = nowVisible === imgBottom ? imgTop : imgBottom;
+                    if (!nowVisible.classList.contains("visible")) nowVisible.classList.add("visible");
+                    if (nowHidden.classList.contains("visible")) nowHidden.classList.remove("visible");
+                    if (!nowHidden.classList.contains("hidden")) nowHidden.classList.add("hidden");
+                    // Update indices manually based on visible image src
+                    for (let i = 0; i < images.length; i++) {
+                        if (nowVisible.src.includes(images[i].split("/").pop()) || nowVisible.src === images[i]) {
+                            currentIdx = i;
+                            nextIdx = (i + 1) % images.length;
+                            break;
+                        }
+                    }
+                    updateDots(currentIdx);
+                }
+            }, 1300);
+        }
+        
+        // Initialize dots
+        updateDots(currentIdx);
+        
+        // Preload all images to ensure smooth future transitions (optional but good for network)
+        // Preload next two images for immediate smoothness
+        function preloadImages() {
+            for (let i = 0; i < images.length; i++) {
+                const preloadLink = document.createElement("link");
+                preloadLink.rel = "preload";
+                preloadLink.as = "image";
+                preloadLink.href = images[i];
+                document.head.appendChild(preloadLink);
+            }
+        }
+        preloadImages();
+        
+        // Set interval to trigger crossfade every 3 seconds
+        intervalId = setInterval(() => {
+            crossfadeToNext();
+        }, 3000);
+        
+        // Optional: Add manual control via click on dots? Not requested, but keeps robust
+        // but we keep only smooth automatic transition as requested.
+        // Ensure that if the user wants to avoid any memory leak, but it's fine.
+        
+        // Also add a small safeguard for page visibility: pause transition when tab inactive? optional
+        // but not required for smoothness.
+        
+        // For extra robustness: if any image fails to load, still continue transition
+        window.addEventListener("load", () => {
+            // ensure first image loaded, but no need to intervene, transition will be smooth
+            console.log("Smooth transition ready: crossfade every 3 seconds");
+        });
+        
+        // Additionally we can provide a reset if needed but not necessary.
+        // Additionally ensure that when changing image, no "flash" occurs by setting object-fit:cover and background consistency.
+        
+        // Edge behavior: In case the interval tries to trigger while transitioning, we skip via isTransitioning flag.
+        // That means transition will always complete before next one starts -> perfectly smooth.
+        
+        // Also to keep extremely smooth crossfade, ensure both images have same size aspect.
+        // Since container has fixed height and width full, object-fit:cover works magic.
+        
+        // Bonus: If user wants to restart animation or something, no need but we also add a hover pause? no, but keep reliable.
+        // According to requirement: "no shortcut for it? just smooth transition from one image to another"
+        // This solution uses NO innerHTML replacement, NO sudden img.src changes during transition, only class-based opacity transition.
+        
+        // For extreme safety, let's add a style to ensure that images render without initial flicker
+        // The image-stack background matches container.
+        
+        // Additionally we want to ensure that the first transition is smooth from the beginning.
+        // Already bottom image visible, top image preloaded. At t=3s crossfadeToNext will swap making top visible.
+        // Perfect.
+        
+        // To prove no "shortcut" such as visibility hidden or display swapping: we rely solely on opacity transitions.
+        
+        // handle window resize or any reflow: no issues.
+        
+        // Also, create a small accessibility feature: set aria labels for images.
+        imgTop.setAttribute("aria-label", "Slideshow image transitioning");
+        imgBottom.setAttribute("aria-label", "Slideshow image transitioning");
+        
+        // Provide a manual clean-up if needed (not required for demo, but good practice)
+        window.addEventListener("beforeunload", () => {
+            if (intervalId) clearInterval(intervalId);
+        });
+        
+        // Add a simple fallback if images array empty? not needed.
+        
+        // Final touches: For browsers that support will-change, already added.
+        // The transition uses 'ease-in-out' for natural fading curve.
+        console.log("Smooth crossfade active — no innerHTML, no abrupt swaps, just opacity transition between two image layers");
+    </script>
+</body>
+</html>
