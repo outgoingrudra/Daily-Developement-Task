@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <h1 id="head"  >Hello World</h1>
+    <button id="hello">Click Me </button>
+
+    <input type="text" id="in" onchange="fn()" >
+
+ 
+</body>
+<script>
+    console.log("Hey")
+
+    function work(){
+        console.log("Btn Clicked ");
+    } 
+    function Loaded(){
+        console.log("Body Loaded !!!")
+    }
+    document.body.onload = Loaded
+    function fn(){
+        console.log("Onchange func")
+    }
+   document.getElementById("in").onchange = fn
+
+
+   function hovering(){
+    console.log("Hover over Heading")
+   }
+
+    document.getElementById("head").onmouseover = hovering
+
+
+
+</script>
+</html>
+
+
+<!-- 
+
+    Events
+    1. onclick
+    2. onload 
+
+-->
