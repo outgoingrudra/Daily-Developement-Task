@@ -3,12 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Basic Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="m-20 text-lg">Hello</div>
-  <div>Hello</div>
-    
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="calculator bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+        <input type="text" id="display" class="w-full mb-4 p-4 text-right text-2xl border border-gray-300 rounded" readonly>
+        <div class="buttons grid grid-cols-4 gap-2">
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('7')">7</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('8')">8</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('9')">9</button>
+            <button class="btn bg-orange-400 hover:bg-orange-500 p-4 text-xl rounded text-white" onclick="appendToDisplay('/')">/</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('4')">4</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('5')">5</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('6')">6</button>
+            <button class="btn bg-orange-400 hover:bg-orange-500 p-4 text-xl rounded text-white" onclick="appendToDisplay('*')">*</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('1')">1</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('2')">2</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('3')">3</button>
+            <button class="btn bg-orange-400 hover:bg-orange-500 p-4 text-xl rounded text-white" onclick="appendToDisplay('-')">-</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('0')">0</button>
+            <button class="btn bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded" onclick="appendToDisplay('.')">.</button>
+            <button class="btn bg-green-500 hover:bg-green-600 p-4 text-xl rounded text-white" onclick="calculate()">=</button>
+            <button class="btn bg-orange-400 hover:bg-orange-500 p-4 text-xl rounded text-white" onclick="appendToDisplay('+')">+</button>
+            <button class="btn bg-red-500 hover:bg-red-600 p-4 text-xl rounded text-white col-span-4" onclick="clearDisplay()">C</button>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById('display');
+        let currentInput = '';
+        let operator = '';
+        let previousInput = '';
+
+        function appendToDisplay(value) {
+            currentInput += value;
+            display.value = currentInput;
+        }
+
+        function clearDisplay() {
+            currentInput = '';
+            operator = '';
+            previousInput = '';
+            display.value = '';
+        }
+
+        function calculate() {
+            if (previousInput && operator && currentInput) {
+                let result;
+                const prev = parseFloat(previousInput);
+                const curr = parseFloat(currentInput);
+                switch (operator) {
+                    case '+':
+                        result = prev + curr;
+                        break;
+                    case '-':
+                        result = prev - curr;
+                        break;
+                    case '*':
+                        result = prev * curr;
+                        break;
+                    case '/':
+                        result = prev / curr;
+                        break;
+                    default:
+                        return;
+                }
+                display.value = result;
+                currentInput = result.toString();
+                operator = '';
+                previousInput = '';
+            } else if (currentInput) {
+                previousInput = currentInput;
+                currentInput = '';
+                operator = value;
+            }
+        }
+
+        // Wait, I need to fix the calculate function. When = is pressed, it should perform the operation.
+        // But in my code, appendToDisplay is for numbers and operators, but for = it's calculate.
+
+        // Actually, for operators, I need to set the operator and move current to previous.
+
+        // Let me adjust.
+
+        // Better logic:
+
+        function appendToDisplay(value) {
+            if (['+', '-', '*', '/'].includes(value)) {
+                if (currentInput) {
+                    if (previousInput && operator) {
+                        // Calculate previous operation first
+                        calculate();
+                    }
+                    operator = value;
+                    previousInput = currentInput;
+                    currentInput = '';
+                }
+            } else {
+                currentInput += value;
+                display.value = currentInput;
+            }
+        }
+
+        function calculate() {
+            if (previousInput && operator && currentInput) {
+                let result;
+                const prev = parseFloat(previousInput);
+                const curr = parseFloat(currentInput);
+                switch (operator) {
+                    case '+':
+                        result = prev + curr;
+                        break;
+                    case '-':
+                        result = prev - curr;
+                        break;
+                    case '*':
+                        result = prev * curr;
+                        break;
+                    case '/':
+                        result = prev / curr;
+                        break;
+                }
+                display.value = result;
+                currentInput = result.toString();
+                previousInput = '';
+                operator = '';
+            }
+        }
+
+        // For =, call calculate, for operators, appendToDisplay will handle.
+    </script>
 </body>
 </html>
