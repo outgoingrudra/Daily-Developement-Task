@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter Money">
+    <input type="text" placeholder="enter Rate">
+    <input type="text" placeholder="enter Time">
+    <button onclick="cal()">Calculate Interest</button>
+
+    <h3>Interest : 30000</h3>
+
+
+    <script>
+   function cal(){
+            let money = Number(document.getElementsByTagName("input")[0].value)
+        let rate = Number(document.getElementsByTagName("input")[1].value)
+        let time = Number(document.getElementsByTagName("input")[2].value)
+
+        interest = money*rate*time/100
+        document.getElementsByTagName("h3")[0].innerHTML = `Interest : ${interest}`
+   }
+    </script>
+    
+</body>
+</html>
