@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        height: 150px;
+        width: 150px;
+        background-color: blue;
+        position: absolute;
+        margin: 30px;
+        top: 100px;
+        left: 100px;
+        
+        
+        
+     
+    }
+
+</style>
+<body>
+    <button onclick="Increase()">Increase</button> <br> <br>
+    <button onclick="Decrease()">Decrease</button> <br> <br>
+    <div id="box"></div>
+    
+</body>
+<script>
+    let box = document.getElementById("box")
+   let size =1
+
+    function Increase(){
+        interval = setInterval(() => {
+         
+              box.style.transform = `scale(${size})`
+              size +=0.1
+
+            if(size >2){
+                clearInterval(interval)
+            }
+        }, 100);
+    }
+
+  function Decrease(){
+        interval = setInterval(() => {
+         
+              box.style.transform = `scale(${size})`
+              size -=0.1
+
+            if(size < 0.5){
+                clearInterval(interval)
+            }
+        }, 100);
+    }
+
+</script>
+</html>
