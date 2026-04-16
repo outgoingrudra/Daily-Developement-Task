@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ 
+<body>
+    <h1  id="head">Hello world </h1>
+    <input type="text"  id="in">
+    
+</body>
+<script>
+    function act(event)
+    {
+        console.log(event)
+        console.log("changes!") 
+
+
+    }
+
+
+
+    function work(){console.log("Mouse over !") }
+     let head = document.getElementById("head")
+     let inp = document.getElementById("in")
+     
+     head.addEventListener("keydown",act)
+     head.addEventListener("click",act)
+
+
+     inp.addEventListener("change",act)
+     inp.addEventListener("mouseover",work)
+
+   
+
+</script>
+</html>
