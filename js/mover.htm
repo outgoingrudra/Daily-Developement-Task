@@ -2,29 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Move Box with Arrow Keys</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            background: #f2f2f2;
+        }
+
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
 </head>
-<style>
-    #div{
-        height: 200px;
-        width: 200px;
-        background-color: teal;
-
-    }
-</style>
 <body>
-    <div id="div"></div>
-    
-</body>
-<script>
-    document.getElementById("div").addEventListener("keydown",move)
 
-    function move(event){
-           switch(event.key){
-            case "ArrowDown":
-                 console.log("ArrowDown")
-           }
-    }
+<div id="box"></div>
+
+<script>
+    const box = document.getElementById("box");
+
+    let topPosition = 100;
+    let leftPosition = 100;
+
+    document.addEventListener("keydown", function(event){
+
+        if(event.key === "ArrowDown"){
+            topPosition += 10;
+        }
+
+        if(event.key === "ArrowUp"){
+            topPosition -= 10;
+        }
+
+        if(event.key === "ArrowRight"){
+            leftPosition += 10;
+        }
+
+        if(event.key === "ArrowLeft"){
+            leftPosition -= 10;
+        }
+
+        box.style.top = topPosition + "px";
+        box.style.left = leftPosition + "px";
+    });
 </script>
+
+</body>
 </html>

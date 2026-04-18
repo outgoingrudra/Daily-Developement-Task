@@ -15,6 +15,6 @@ function deleteItems(user){
     
 }
 
-c
+
 //[user -> getItems -> deleteItems]
 

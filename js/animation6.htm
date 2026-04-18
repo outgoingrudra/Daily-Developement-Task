@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        background-color: green;
+        height: 150px;
+        width: 150px;
+        position: absolute;
+       
+    }
+</style>
+<body>
+    <div id="box"></div>
+    
+</body>
+<script>
+    let box = document.getElementById("box")
+    let x  = 0
+    let y=  0
+
+    document.addEventListener("keydown", function(event){
+         switch(event.key){
+            case "ArrowDown" :
+                y+= 20
+                box.style.top = y +"px"
+                break ;
+            case "ArrowUp" :
+                y-=20
+                box.style.top = y +"px"
+                break ;
+             case "ArrowLeft" :
+                x-= 20
+                box.style.left = x +"px"
+                break ;
+            case "ArrowRight" :
+                x+=20
+                box.style.left = x +"px"
+                break ;
+         }
+    })
+</script>
+</html>
