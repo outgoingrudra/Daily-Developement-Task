@@ -86,3 +86,73 @@ e.g - I have used axios dependency in my project .
 
 
 
+
+# Transitive dependendency
+  - Transitive dependency is the dependency of the dependency 
+    A pkg is needed for our project .
+    for running A pkg we need B and C pkg => B and C will be transitive dependency for me 
+
+
+# Why 2 React pkg needed 
+   - React is not limited to web development . it is also used in app development and others . React DOM is limited to web development .
+
+# What is jsx 
+  - 
+
+# Can react work without jsx 
+
+# Can js engine understand jsx
+
+# What is Babel
+
+# Philosophy of React 
+
+# can React be used for Backend 
+    - No ! 
+    React - frontend
+    Node - Backend
+    Next - for both
+
+# What is dependency
+ - Dependency is the pkg on which our project depends on .
+
+# What are the types of dependencies
+  - There are two types of dependency - Normal dependency and Development dependency
+
+# difference between normal and dev dependency 
+    - Normal dependency is used in both development and production
+    - Dev Dependency is used for development only 
+   
+# Why we need dev dependency ?
+   - Make development easy 
+
+# How to install dev dependency ?
+   - npm install pkg-name -> for installing normal dependency
+   - npm install -D pkg-name -> for installing dev dependency
+
+# What is Bundler
+ 
+
+# What does bundler do 
+
+# type of browser 
+  2 types of browser 
+   - Modern browser -> new browser 
+   - Legacy browser -> old browser
+
+# How to install a pkg as dev dependency
+  - npm install -D pkg-name  
+
+# What is HMR 
+
+# What is Tree Shaking 
+
+# What is differntail bundling 
+
+# What is virtual DOM 
+
+# Why React so fast ?
+
+# What is "build" command ?
+
+
