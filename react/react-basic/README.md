@@ -156,3 +156,9 @@ e.g - I have used axios dependency in my project .
 # What is "build" command ?
 
 
+
+# type of export-import  ?
+  - 2 type of export - import present in React .
+    - default export - import 
+    - named export - import 
+    
