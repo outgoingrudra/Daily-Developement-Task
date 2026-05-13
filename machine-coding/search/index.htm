@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Directory</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    .user-card {
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #f9fafb;
+        border-radius: 6px;
+        border: 1px solid #eee;
+        transition: 0.2s ease;
+    }
+
+    .user-card:hover {
+        background: #eaf3ff;
+        transform: translateY(-2px);
+    }
+
+    .no-results {
+        text-align: center;
+        color: red;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>User Directory</h1>
+
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search by name or role..."
+    >
+
+    <div id="userList"></div>
+
+    <p id="noResults" class="no-results">No users found</p>
+</div>
+
+<script>
+    const users = [
+        { name: "Rohan", role: "Frontend Developer" },
+        { name: "Ananya", role: "Backend Developer" },
+        { name: "Kabir", role: "UI Designer" },
+        { name: "Meera", role: "Data Scientist" },
+        { name: "Arjun", role: "DevOps Engineer" },
+        { name: "Sneha", role: "Product Manager" }
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const userList = document.getElementById("userList");
+    const noResults = document.getElementById("noResults");
+
+    function renderUsers(filteredUsers) {
+        userList.innerHTML = "";
+
+        if (filteredUsers.length === 0) {
+            noResults.style.display = "block";
+            return;
+        }
+
+        noResults.style.display = "none";
+
+        filteredUsers.forEach(user => {
+            const div = document.createElement("div");
+            div.classList.add("user-card");
+            div.innerHTML = `<strong>${user.name}</strong><br>${user.role}`;
+            userList.appendChild(div);
+        });
+    }
+
+    searchInput.addEventListener("input", function() {
+        const searchValue = this.value.toLowerCase();
+
+        const filtered = users.filter(user => 
+            user.name.toLowerCase().includes(searchValue) ||
+            user.role.toLowerCase().includes(searchValue)
+        );
+
+        renderUsers(filtered);
+    });
+
+    // Initial render
+    renderUsers(users);
+</script>
+
+</body>
+</html>
