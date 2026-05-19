@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Strength Checker</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 350px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .strength-text {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    .progress-bar {
+        height: 10px;
+        border-radius: 5px;
+        background: #ddd;
+        overflow: hidden;
+    }
+
+    .progress {
+        height: 100%;
+        width: 0%;
+        transition: 0.3s ease;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Password Strength Checker</h2>
+
+    <input type="password" id="passwordInput" placeholder="Enter password">
+
+    <div class="strength-text" id="strengthText">
+        Strength: -
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+</div>
+
+<script>
+    const passwordInput = document.getElementById("passwordInput");
+    const strengthText = document.getElementById("strengthText");
+    const progress = document.getElementById("progress");
+
+    passwordInput.addEventListener("input", () => {
+        const password = passwordInput.value;
+        let score = 0;
+
+        if (password.length >= 8) score++;
+        if (/[a-z]/.test(password)) score++;
+        if (/[A-Z]/.test(password)) score++;
+        if (/[0-9]/.test(password)) score++;
+        if (/[^A-Za-z0-9]/.test(password)) score++;
+
+        updateUI(score);
+    });
+
+    function updateUI(score) {
+        let strength = "";
+        let width = score * 20;
+
+        if (score <= 2) {
+            strength = "Weak ❌";
+            progress.style.background = "red";
+        } else if (score <= 4) {
+            strength = "Medium ⚠️";
+            progress.style.background = "orange";
+        } else {
+            strength = "Strong ✅";
+            progress.style.background = "green";
+        }
+
+        progress.style.width = width + "%";
+        strengthText.textContent = "Strength: " + strength;
+    }
+</script>
+
+</body>
+</html>
