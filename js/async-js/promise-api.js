@@ -50,6 +50,7 @@ const p3 = new Promise(function(resolve,reject){
 
 
 // Promise.any() -> it will return the first promise which will be resolved . 
+
 Promise.any([p1,p2,p3]).then((res)=>{
     console.log(res);
     
