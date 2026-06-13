@@ -18,4 +18,25 @@ const isOdd = (x)=> x%2==1
 const isNegative =(x)=> x< 0
 let  users = 1000 
 
-module.exports = {add , multiply, users, factorial , isNegative , isOdd}
+function squareRoot(x){
+    low = 0 
+     high = 214748
+     ans = low
+     while(low<=high){
+        mid = Math.floor((high+low)/2);
+        calc = mid * mid
+
+        if(calc==x) return mid
+        else if(calc<x){
+            ans = mid
+            low = mid +1
+        }
+        else high = mid -1
+     }
+     return ans 
+        
+}
+
+module.exports = {add , multiply, users, factorial , isNegative , isOdd, squareRoot}
+
+
