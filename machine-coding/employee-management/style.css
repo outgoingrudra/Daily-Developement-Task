@@ -1,0 +1,70 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+    align-items: center;
+}
+
+button{
+    padding: 5px 3px ;
+    cursor: pointer;
+}
+
+.main{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.left{
+    width: 30%;
+    border : 1px solid black;
+}
+.right{
+    width: 60%;
+    border : 1px solid black;
+}
+.heading{
+    text-align: center;
+}
+.elements{
+    display: flex;
+    justify-content: center;
+    width: 95%;
+}
+.list{
+    list-style: none;
+    
+}
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 15px 3px 5px;
+    border: 1px solid black;
+    width: 300px;
+    margin-bottom: 5px;
+}
+.list-item:hover{
+    background-color: gray;
+    
+}
+.item-name{
+    font-size: large;
+    cursor: pointer;
+    
+}
+.delete{
+    cursor: pointer;
+}
+.employee-information{
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+}
+.employee-information > img{
+      height: 250px;
+} 
+.details{
+    width: 80%;
+    height: 250px;
+}
