@@ -61,8 +61,8 @@ button{
     display: flex;
     gap: 5px;
 }
-.employee-information > img{
-      height: 250px;
+.main-img{
+  
 } 
 .details{
     width: 80%;

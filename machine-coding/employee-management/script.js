@@ -6,8 +6,6 @@ async function render(){
     employees = res
     selectedEmployee = employees[0].id
     populateList()
-    showEmployeeInfo(selectedEmployee)
-    showMainEmployee()
 
 }
 render()
@@ -20,10 +18,12 @@ function populateList(){
     for(let x of employees){
         list.innerHTML += `<li  class="list-item"><span class="item-name" onclick="showEmployeeInfo(${x.id})">${i++} . ${x.firstName} ${x.lastName}</span><span class="delete" onclick="deleteItem(${x.id})">❌</span></li>`
     }
+     showEmployeeInfo(selectedEmployee)
 }
 
 function deleteItem(id){
     employees = employees.filter(emp => emp.id != id)
+    if(selectedEmployee.id==id) selectedEmployee = employees[0]
     populateList()
 }
 
@@ -36,6 +36,9 @@ function showEmployeeInfo(id){
 
 function showMainEmployee(){
     let details = document.getElementById("details")
+    let img = document.getElementById("image")
+    img.innerHTML = ` <img id="main-img" height="250px" style="border-radius: 30px;" src="${selectedEmployee.imageUrl}" alt="" />`
+    
     details.innerHTML = ` <div>
                 <center><h3>${selectedEmployee.firstName} ${selectedEmployee.lastName}</h3></center>
                 <p>Email : ${selectedEmployee.email}</p>
