@@ -47,3 +47,19 @@
 
 - frontend js -> cant access os , databases , network 
 - node js provides special features for those and make js super powerful .
+
+
+# How browser send request
+  - first of all browser convert the domain name to Ip address .
+  For this conversion  it takes help from DNS server
+  - then it send request to the IP address 
+
+
+  localhost -> 127.0.0.1 -> then browser hit request
+
+public ip -  : 192.168.56.1
+local ip - 127.0.0.1 
+
+
+local Ip : port
+127.0.0.1:8000
