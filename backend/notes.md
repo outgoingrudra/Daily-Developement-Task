@@ -63,3 +63,10 @@ local ip - 127.0.0.1
 
 local Ip : port
 127.0.0.1:8000
+
+
+
+
+- app.listen(PORT , callback func)
+
+- nodemon - automatically restart the server when file changes 

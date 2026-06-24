@@ -1,22 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethereal · Portfolio</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Optional subtle Google Font (inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #faf9f6;
+    }
+    /* glass-morphism card effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
+    }
+    .hero-gradient {
+      background: linear-gradient(145deg, #fdfcfb 0%, #e2e1de 100%);
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      transition: all 0.25s ease;
+      box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15);
+    }
+    .icon-ring {
+      transition: all 0.2s;
+    }
+    .icon-ring:hover {
+      color: #1e293b;
+      transform: scale(1.08);
+    }
+    /* subtle animated gradient for hero accent */
+    .accent-gradient {
+      background: linear-gradient(135deg, #c084fc, #818cf8, #38bdf8);
+      background-size: 200% 200%;
+      animation: softGlow 8s ease infinite alternate;
+    }
+    @keyframes softGlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #a5b4fc;
+      border-radius: 30px;
+    }
+  </style>
 </head>
-<body>
-    
-    <script>
-        async function fetchData() {
-            let res = await fetch("http://127.0.0.1:3000")
-            // let output = await res.json()
-            // console.log("The fetched data : ");
-            
-            console.log(res);
-            
-        }
-        fetchData()
-    </script>
+<body class="text-gray-800 antialiased">
+
+  <!-- main container -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-8 md:py-14">
+
+    <!-- header / nav -->
+    <header class="flex flex-wrap items-center justify-between mb-12">
+      <div class="text-2xl font-light tracking-wide flex items-center gap-2">
+        <span class="w-9 h-9 rounded-full bg-indigo-300/70 flex items-center justify-center text-white text-xl font-medium shadow-sm">✦</span>
+        <span class="font-medium text-gray-700">NOVA</span>
+      </div>
+      <nav class="flex gap-7 text-sm font-medium text-gray-500 tracking-wide">
+        <a href="#" class="hover:text-indigo-600 transition">Work</a>
+        <a href="#" class="hover:text-indigo-600 transition">Studio</a>
+        <a href="#" class="hover:text-indigo-600 transition">Journal</a>
+        <a href="#" class="hover:text-indigo-600 transition">Contact</a>
+      </nav>
+    </header>
+
+    <!-- hero section -->
+    <section class="hero-gradient rounded-3xl p-8 md:p-14 mb-16 relative overflow-hidden shadow-sm">
+      <!-- decorative accent -->
+      <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full accent-gradient opacity-20 blur-2xl"></div>
+      <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div class="max-w-2xl">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-white/70 text-xs font-semibold tracking-wider text-indigo-700 border border-white/40 shadow-sm backdrop-blur-sm mb-5">
+            <i class="fas fa-sparkles mr-2 text-yellow-400"></i>  design · code · vision
+          </div>
+          <h1 class="text-4xl md:text-6xl font-light leading-[1.2] tracking-tight text-gray-800">
+            Crafting digital <br> 
+            <span class="font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">experiences</span> 
+            with soul.
+          </h1>
+          <p class="text-gray-500 text-lg mt-6 max-w-md leading-relaxed">
+            I'm Elara — designer & developer. I build elegant, human-centric interfaces that live at the intersection of art and function.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#" class="bg-gray-900 text-white px-8 py-3.5 rounded-full text-sm font-medium shadow-md hover:bg-gray-700 transition flex items-center gap-2">
+              <i class="fas fa-paper-plane"></i> Let's talk
+            </a>
+            <a href="#" class="bg-white/70 backdrop-blur-sm border border-white/60 text-gray-700 px-8 py-3.5 rounded-full text-sm font-medium hover:bg-white transition flex items-center gap-2 shadow-sm">
+              <i class="fas fa-eye"></i> Explore work
+            </a>
+          </div>
+        </div>
+        <!-- avatar / abstract badge -->
+        <div class="flex-shrink-0 relative">
+          <div class="w-48 h-48 md:w-56 md:h-56 rounded-3xl bg-gradient-to-br from-indigo-200 to-blue-200 flex items-center justify-center shadow-xl border-4 border-white/60 backdrop-blur-sm">
+            <span class="text-7xl opacity-80">🌿</span>
+          </div>
+          <div class="absolute -bottom-2 -right-2 bg-white/70 backdrop-blur-md rounded-2xl px-4 py-2 text-xs font-medium shadow-lg border border-white/50 flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span> available
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- projects / portfolio grid -->
+    <div class="mb-8 flex items-center justify-between">
+      <h2 class="text-2xl md:text-3xl font-light tracking-tight text-gray-700">Selected <span class="font-medium text-gray-900">projects</span></h2>
+      <a href="#" class="text-sm text-indigo-500 hover:text-indigo-700 font-medium flex items-center gap-1 transition">
+        View all <i class="fas fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      
+      <!-- card 1 -->
+      <div class="glass rounded-2xl overflow-hidden card-hover transition duration-300 group">
+        <div class="h-52 bg-gradient-to-br from-rose-200 to-pink-100 flex items-center justify-center text-6xl relative">
+          <span class="drop-shadow-sm">✧</span>
+          <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition"></div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 text-xs text-indigo-500 uppercase tracking-wider font-semibold">
+            <i class="fas fa-paintbrush"></i> Brand identity
+          </div>
+          <h3 class="text-xl font-semibold mt-1 text-gray-800">Aura Studio</h3>
+          <p class="text-gray-500 text-sm mt-1 leading-relaxed">Minimalist visual language for a wellness collective — from logotype to motion.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-gray-400 flex items-center gap-1"><i class="far fa-calendar-alt"></i> 2025</span>
+            <a href="#" class="text-indigo-500 text-sm font-medium hover:text-indigo-700 transition">Case study →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 2 -->
+      <div class="glass rounded-2xl overflow-hidden card-hover transition duration-300 group">
+        <div class="h-52 bg-gradient-to-br from-sky-200 to-cyan-100 flex items-center justify-center text-6xl relative">
+          <span class="drop-shadow-sm">⊹</span>
+          <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition"></div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 text-xs text-indigo-500 uppercase tracking-wider font-semibold">
+            <i class="fas fa-code"></i> Web3
+          </div>
+          <h3 class="text-xl font-semibold mt-1 text-gray-800">Orbit Protocol</h3>
+          <p class="text-gray-500 text-sm mt-1 leading-relaxed">Decentralized dashboard with real-time data visualization and dark mode.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-gray-400 flex items-center gap-1"><i class="far fa-calendar-alt"></i> 2024</span>
+            <a href="#" class="text-indigo-500 text-sm font-medium hover:text-indigo-700 transition">Live demo →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 3 -->
+      <div class="glass rounded-2xl overflow-hidden card-hover transition duration-300 group">
+        <div class="h-52 bg-gradient-to-br from-amber-200 to-yellow-100 flex items-center justify-center text-6xl relative">
+          <span class="drop-shadow-sm">✦</span>
+          <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition"></div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 text-xs text-indigo-500 uppercase tracking-wider font-semibold">
+            <i class="fas fa-mobile-alt"></i> Mobile
+          </div>
+          <h3 class="text-xl font-semibold mt-1 text-gray-800">Bloom App</h3>
+          <p class="text-gray-500 text-sm mt-1 leading-relaxed">Plant care companion with AR scanning and personalized watering schedules.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-gray-400 flex items-center gap-1"><i class="far fa-calendar-alt"></i> 2025</span>
+            <a href="#" class="text-indigo-500 text-sm font-medium hover:text-indigo-700 transition">Prototype →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- extra section: skills / vibe -->
+    <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white/40 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/40 shadow-sm">
+      <div>
+        <h3 class="text-2xl font-light text-gray-700">What I <span class="font-medium text-gray-900">bring</span></h3>
+        <ul class="mt-5 space-y-3 text-gray-600">
+          <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-indigo-400"></span> UI/UX design & prototyping</li>
+          <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-indigo-400"></span> Frontend development (React, Tailwind)</li>
+          <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-indigo-400"></span> Design systems & component libraries</li>
+          <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-indigo-400"></span> Brand storytelling & visual identity</li>
+        </ul>
+      </div>
+      <div class="flex flex-col items-start md:items-end justify-center">
+        <div class="flex flex-wrap gap-4">
+          <span class="bg-white/60 backdrop-blur-sm px-5 py-2 rounded-full text-sm shadow-sm border border-white/50">✨ Framer</span>
+          <span class="bg-white/60 backdrop-blur-sm px-5 py-2 rounded-full text-sm shadow-sm border border-white/50">⚡ Figma</span>
+          <span class="bg-white/60 backdrop-blur-sm px-5 py-2 rounded-full text-sm shadow-sm border border-white/50">🧩 Storybook</span>
+          <span class="bg-white/60 backdrop-blur-sm px-5 py-2 rounded-full text-sm shadow-sm border border-white/50">🌊 Tailwind</span>
+        </div>
+        <p class="text-sm text-gray-400 mt-5 md:text-right italic max-w-xs">"design is not just how it looks, but how it works"</p>
+      </div>
+    </div>
+
+    <!-- footer / contact -->
+    <footer class="mt-16 pt-8 border-t border-gray-200/60 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <div class="flex items-center gap-6">
+        <span class="text-gray-600 font-light">© 2026 Elara Nova</span>
+        <span class="hidden md:inline-block w-px h-4 bg-gray-300"></span>
+        <a href="#" class="hover:text-indigo-500 transition"><i class="fab fa-github"></i></a>
+        <a href="#" class="hover:text-indigo-500 transition"><i class="fab fa-dribbble"></i></a>
+        <a href="#" class="hover:text-indigo-500 transition"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="hover:text-indigo-500 transition"><i class="fab fa-x-twitter"></i></a>
+      </div>
+      <div class="flex items-center gap-3">
+        <span><i class="far fa-envelope mr-1"></i> hello@nova.studio</span>
+        <span class="hidden sm:inline-block w-px h-4 bg-gray-300"></span>
+        <span><i class="fas fa-phone-alt mr-1 text-xs"></i> +1 (555) 000-999</span>
+      </div>
+    </footer>
+
+  </div>
+  <!-- tiny extra flair: floating badge (purely decorative) -->
+  <div class="fixed bottom-8 right-8 opacity-30 hidden lg:flex items-center gap-2 text-xs bg-white/50 backdrop-blur-sm px-3 py-2 rounded-full shadow-sm border border-white/40 pointer-events-none">
+    <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span> 
+    <span class="text-gray-500">open for collaboration</span>
+  </div>
 </body>
 </html>

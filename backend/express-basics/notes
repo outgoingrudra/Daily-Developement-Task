@@ -1,0 +1,26 @@
+Monolithic  -> all tasks like html file sending , data sending done by one server 
+Microservice  -> frontend , backend 
+
+
+
+routes
+-------
+
+/about/arpita
+/product/12/34/2/4/abc/45/232/45/3443/
+/item
+/info
+/user
+
+
+
+http methods 
+------------
+
+1.get - when we want to retrieve some data from server
+2.post - when we want to create some data on server
+3.put - when we want to update a data
+4.delete - when we want to delete data
+5.Patch - when we want to update data partially 
+
+
