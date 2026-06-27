@@ -3,6 +3,7 @@ import Card from "./components/Card";
 import Details from "./components/Details";
 import UserDetails from "./components/UserDetails";
 import PostDetails from "./components/PostDetails";
+import ShowDetails from "./components/ShowDetails";
 
 export default function App() {
 
@@ -416,8 +417,9 @@ const posts = [
      <div className="flex flex-wrap gap-2" >
         {
             // users.map((user,idx)=>(<UserDetails key={idx} user = {user}/>))
-         posts.map((post)=>(<PostDetails post={post}/>))
+           //  posts.map((post)=>(<PostDetails post={post}/>))
       }
+      <ShowDetails/>
 
      </div>
   
