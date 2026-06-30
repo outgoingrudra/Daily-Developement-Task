@@ -4,15 +4,18 @@ import Details from "./components/Details";
 import UserDetails from "./components/UserDetails";
 import PostDetails from "./components/PostDetails";
 import ShowDetails from "./components/ShowDetails";
+import Counter from "./components/Counter";
+import Fruits from "./components/Fruits";
 
 export default function App() {
 
-// const users  = [
-//     { name : "Rudra" , age : 12 , city :"Kolkata"},
-//     { name : "Virat" , age : 11 , city :"New York"},
-//     { name : "Sohaib" , age : 12 , city :"Kolkata"},
-//     { name : "Robert" , age : 12 , city :"Kolkata"},
-// ]
+const users  = [
+    { name : "Rudra" , age : 12 , city :"Kolkata"},
+    { name : "Virat" , age : 11 , city :"New York"},
+    { name : "Sohaib" , age : 12 , city :"Kolkata"},
+    { name : "Robert" , age : 12 , city :"Kolkata"},
+]
+
 
 
 // const users = [
@@ -402,27 +405,32 @@ const posts = [
   }
 ];
  
+
   return (
-    <div>
-      <h1 className="text-2xl  text-center underline ">User Details</h1>
-{/*      
-       {
-        users.map((user, idx)=> (
-          <Details key={idx}  name = {user.name} age = {user.age} city = {user.city} />
-        ))
-       }
- */}
+    // <div>
+    //   <h1 className="text-2xl  text-center underline ">User Details</h1>
+     
+    //    {
+    //     users.map((user, idx)=> (
+    //       <Details key={idx}  name = {user.name} age = {user.age} city = {user.city} />
+    //     ))
+    //    }
 
 
-     <div className="flex flex-wrap gap-2" >
-        {
-            // users.map((user,idx)=>(<UserDetails key={idx} user = {user}/>))
-           //  posts.map((post)=>(<PostDetails post={post}/>))
-      }
-      <ShowDetails/>
 
-     </div>
+    //  <div className="flex flex-wrap gap-2" >
+    //     {
+    //         // users.map((user,idx)=>(<UserDetails key={idx} user = {user}/>))
+    //        //  posts.map((post)=>(<PostDetails post={post}/>))
+    //   }
+    //   <ShowDetails/>
+
+    //  </div>
   
+    // </div>
+    <div>
+      {/* <Counter/> */}
+      <Fruits/>
     </div>
   );
 }
