@@ -6,6 +6,7 @@ import PostDetails from "./components/PostDetails";
 import ShowDetails from "./components/ShowDetails";
 import Counter from "./components/Counter";
 import Fruits from "./components/Fruits";
+import OTP from "./machineCoding/accordian/OTP";
 
 export default function App() {
 
@@ -430,7 +431,8 @@ const posts = [
     // </div>
     <div>
       {/* <Counter/> */}
-      <Fruits/>
+      {/* <Fruits/> */}
+     <OTP/>
     </div>
   );
 }

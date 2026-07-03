@@ -24,3 +24,56 @@ http methods
 5.Patch - when we want to update data partially 
 
 
+
+
+// Status code 
+
+    -status codes are 3 digit numbers that tells you if a request was successful or failed and why
+     200 - OK
+     201 - created 
+     400 - bad request
+     401 - unauthorized
+     404 - not found
+     500 - internal server error 
+
+Database 
+    - SQL  - Structured Query Language
+        - tabular format 
+        - ACID properties 
+    - NOSQL - Not Only Strucutured Query language
+       - Document oriented (e.g - Mongodb)
+       - Column oriented (e.g - Cassandra)
+       - Key- value pair (e.g - Redis)
+       - Graph oriented (e.g - Neo4j)
+      
+
+//mongodb 
+   - BSON format
+   - No sql database
+   - faster than sql 
+   - can handle large amount of data
+
+
+ database
+  - schema - logical description of the database
+
+
+
+users 
+------
+name ,
+email - unique  ,
+password ,
+image - optional 
+
+
+moongodb setup 
+  - npm install mongoose
+  - mongoose connection
+  - schema formation
+  - u can use the data
+
+// API 
+
+// Middleware 
+

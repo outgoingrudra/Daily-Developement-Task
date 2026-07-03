@@ -9,6 +9,7 @@ export default function Fruits() {
         setFruits([...fruits ,name ])
         setName("")
      }
+
   return (
     <div>
         <h3 className='text-2xl font-semibold mb-4'>Fruits</h3>
