@@ -11,6 +11,7 @@ export default function Counter() {
           onClick={() => {
             setCount(count + 1);
           }}
+          
         >
           Increase
         </button>
