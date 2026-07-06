@@ -445,13 +445,15 @@ import React from 'react'
 import NestedCheckBoxes from './machineCoding/NestedCheckBoxes'
 import Cart from './components/Cart'
 import Items from './components/Items'
+import AutoCompleteSearchBar from './machineCoding/AutoCompleteSearchBar'
 
 export default function() {
   return (
     <div>
       {/* <NestedCheckBoxes/> */}
-      <Items/>
-      <Cart/>
+      {/* <Items/>
+      <Cart/> */}
+      <AutoCompleteSearchBar/>
     </div>
   )
 }
