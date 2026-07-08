@@ -447,6 +447,8 @@ import NestedCheckBoxes from './machineCoding/NestedCheckBoxes'
 import Cart from './components/Cart'
 import Items from './components/Items'
 import AutoCompleteSearchBar from './machineCoding/AutoCompleteSearchBar'
+import Form from './components/Form'
+import Age from './components/Age'
 
 export default function() {
   return (
@@ -454,7 +456,10 @@ export default function() {
       {/* <NestedCheckBoxes/> */}
       {/* <Items/>
       <Cart/> */}
-      <AutoCompleteSearchBar/>
+      {/* <AutoCompleteSearchBar/> */}
+      {/* <Form/> */}
+
+      <Age  age={32}/>
     </div>
   )
 }

@@ -11,3 +11,21 @@
 
 # key props
   - unique identifier that help React to track elements in virtual DOM for efficient updates
+
+
+
+
+# hooks 
+
+
+
+# use State 
+ - useState is a react hook which is used to create state variable . whenever state variables updates it triggers a re - render 
+
+
+ useState() - returns [ variable , setter func]
+ - whenever the setter func will be called it will trigger the re-render 
+
+
+
+- React uses reconcilation algorithm behind the scene for efficent dom manipulation 
