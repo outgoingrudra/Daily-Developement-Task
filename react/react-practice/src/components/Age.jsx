@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function Age({ age }) {
+
+
   return (
     <div className="flex justify-center h-80 items-center">
       {age >= 18 ? (
