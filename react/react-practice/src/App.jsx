@@ -450,6 +450,7 @@ import AutoCompleteSearchBar from './machineCoding/AutoCompleteSearchBar'
 import Form from './components/Form'
 import Age from './components/Age'
 import RandomNumberGenerator from './components/RandomNumberGenerator'
+import Pagination from './machineCoding/Pagination'
 
 export default function() {
   return (
@@ -461,7 +462,8 @@ export default function() {
       {/* <Form/> */}
 
       {/* <Age  age={32}/> */}
-      <RandomNumberGenerator/>
+      {/* <RandomNumberGenerator/> */}
+      <Pagination/>
     </div>
   )
 }
