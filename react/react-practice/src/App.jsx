@@ -451,6 +451,7 @@ import Form from './components/Form'
 import Age from './components/Age'
 import RandomNumberGenerator from './components/RandomNumberGenerator'
 import Pagination from './machineCoding/Pagination'
+import Github from './machineCoding/Github'
 
 export default function() {
   return (
@@ -463,7 +464,8 @@ export default function() {
 
       {/* <Age  age={32}/> */}
       {/* <RandomNumberGenerator/> */}
-      <Pagination/>
+      {/* <Pagination/> */}
+      <Github/>
     </div>
   )
 }
