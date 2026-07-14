@@ -16,7 +16,8 @@
 
 
 # hooks 
-
+- hooks are normal javascript utility functions which provide state and lifecycle methods to functional component .
+e.g - useState , useEffect ,.....
 
 
 # use State 
@@ -29,3 +30,11 @@
 
 
 - React uses reconcilation algorithm behind the scene for efficent dom manipulation 
+
+
+
+# UseEffect
+ - it has 2 arguments - a callback func and a dependency array
+
+ use of useEffect 
+ - data fetching
