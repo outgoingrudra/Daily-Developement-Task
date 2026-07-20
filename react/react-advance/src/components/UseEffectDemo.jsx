@@ -11,8 +11,6 @@ export default function UseEffectDemo() {
             const result = await fetch("https://dummyjson.com/todos")
             const output = await result.json()
             setData(output.todos)
-            console.log(output.todos);
-            
         }
         DataFetch()
         console.log("UseEffect run");
