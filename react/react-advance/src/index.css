@@ -1,1 +1,57 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
+
+header{
+    text-align: center;
+}
+
+input{
+    width: 60%;
+    height: 40px;
+    font-size: larger;
+    border-radius: 30px;
+    padding-left: 10px;
+    border: 1px solid black;
+    outline: 1px solid green;
+    outline-offset: 1px;
+    box-shadow: 3px 3px 3px black;
+    
+    
+}
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.item-container{
+    width: 90%;
+    outline:2px solid black;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.item-container:hover{
+    outline-offset: 3px;
+
+}
+.item-img{
+    height: 40px;
+}
+.item-desc{
+    display: flex;
+    align-items: center;
+}
+
+
+.loading{
+    text-align: center;
+    font-size: x-large;
+    color: red;
+}
