@@ -4,7 +4,7 @@ header{
     text-align: center;
 }
 
-input{
+/* input{
     width: 60%;
     height: 40px;
     font-size: larger;
@@ -16,7 +16,7 @@ input{
     box-shadow: 3px 3px 3px black;
     
     
-}
+} */
 .search{
     display: flex;
     justify-content: center;
@@ -54,4 +54,40 @@ input{
     text-align: center;
     font-size: x-large;
     color: red;
+}
+
+.todo-input{
+    height: 40px;
+    width: 300px;
+    border-radius: 15px;
+    padding-left: 5px;
+}
+
+.todo-btn{
+    margin-left: 20px;
+    height: 40px;
+    width: 60px;
+    cursor: pointer;
+    background-color: rgb(72, 215, 72);
+    border-radius: 5px;
+}
+
+.upper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-name {
+    font-size: larger;
+    margin-right: px;
+}
+
+.todo{
+    display: flex;
+    width: 40% ;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black
+
 }
