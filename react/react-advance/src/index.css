@@ -88,6 +88,15 @@ header{
     width: 40% ;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid black
+    border: 1px solid black;
+    margin-bottom: 10px;
 
+}
+
+.check{
+    text-decoration: line-through;
+}
+
+img{
+    height:15px;
 }

@@ -16,7 +16,19 @@ export default function ToDO() {
    }
 
    function deleteTodo(id) {
+              let temp = todos.filter((todo)=> todo.id != id)
+              setTodos(temp)
+   }
 
+   function handleCheck(e , id ) {
+           let temp = todos.map((todo)=> {
+              if(todo.id==id){
+                    todo.completed = !todo.completed
+              }
+              return todo
+           })
+
+           setTodos(temp)
    }
   return (
     <div>
@@ -34,12 +46,13 @@ export default function ToDO() {
        <div className="">
         {
             todos.map((todo)=><div key={todo.id} className='todo'> 
-            <input type="checkbox" name="" id="" checked={todo.completed} />
-                    <span className="todo-name">{todo.name}</span>
+            <input type="checkbox" name="" id="" checked={todo.completed}  onChange={(e)=> handleCheck(e , todo.id )}/>
 
-                     Status : {todo.completed ? " Completed" :"Not Completed"}
+                    <span className={`todo-name ${todo.completed ? "check" : ""}`}>{todo.name}</span>
 
-                     <button className="" onClick={()=> deleteTodo(todo.id)}>Delete</button>
+               
+
+                     <button className="" onClick={()=> deleteTodo(todo.id)}> <img  className='image'  src="https://cdn-icons-png.flaticon.com/512/484/484662.png" alt="" /> </button>
                 </div>)
         }
        </div>
@@ -47,5 +60,4 @@ export default function ToDO() {
     </div>
   )
 }
-
 
