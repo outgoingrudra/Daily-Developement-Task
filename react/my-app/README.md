@@ -18,3 +18,26 @@ Routes - Route
      <Route/>
      <Route/>
 </Routes>
+
+
+
+code -splliting / Dynamic bundling / lazy loading
+ - breaking the large js bundle into smaller peices so they load only when needed
+
+lazy()
+  - it lets you load a component only when it actually needed
+
+
+
+controlled component
+  - a  form element which value  is conttrolled by react state
+
+
+
+Props driling 
+-  it occurs when you props are passed through multiple layers of component unneccessarily to reach a nested component
+
+soln -
+  - Context API
+  - State Management lib(Redux)
+  

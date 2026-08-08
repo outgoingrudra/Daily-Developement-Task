@@ -4,10 +4,13 @@ import SearchBar from './machine-coding/SearchBar'
 import ToDO from './machine-coding/ToDO'
 import { Routes  , Route } from 'react-router-dom'
 
+import { FaChevronUp } from "react-icons/fa";
 export default function App() {
   return (
     <div>
-      <ToDO/>
+      Hi
+      <FaChevronUp />
+      
     </div>
   )
 }

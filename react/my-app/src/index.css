@@ -16,3 +16,94 @@ header a{
     cursor: pointer;
     font-size: larger;
 }
+
+
+
+
+
+
+.todo-heading{
+    margin-top: 10px;
+    font-weight: 500 ;
+    font-size: large;
+}
+
+.todo-input{
+    height: 40px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
+    outline: auto;
+    padding: 10px;
+
+}
+
+.todo-btn{
+    margin-left: 20px;
+    height: 40px;
+    width: 60px;
+    cursor: pointer;
+    background-color: rgb(215, 120, 208);
+    border-radius: 5px;
+}
+
+.todo-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-name{
+    font-size: larger;
+    margin-right:10px;
+}
+
+.todo{
+    display: flex;
+    width: 30% ;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.check{
+    text-decoration: line-through;
+}
+img{
+    height: 15px;
+}
+
+
+.box{
+    border: 1px solid black;
+    width: 50%;
+}
+.box-head{
+    display: flex;
+    height: 30px;
+    background-color: rgb(216, 208, 208);
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: larger;
+}
+
+.box-desc{
+    display: none;
+
+}
+
+.box p{
+    padding: 5px 20px 5px 30px;
+}
+.box button{
+    height: 20px;
+    width: 30px;
+    font-size: larger;
+    background-color: rgb(216, 208, 208);
+    border : none ;
+
+}
