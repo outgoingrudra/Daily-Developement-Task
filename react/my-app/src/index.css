@@ -6,7 +6,7 @@ header{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 40px;
+    height: 50px;
     background-color: rgb(236, 218, 218);
 
 }
@@ -106,4 +106,57 @@ img{
     background-color: rgb(216, 208, 208);
     border : none ;
 
+}
+
+
+.active-head{
+     background-color: rgb(210, 165, 165);
+     height: 35px;
+     padding: 3px 10px 3px 10px;
+     border-radius: 20px;
+     display: flex;
+     align-items: center;
+}
+
+.product-card{
+     height: 70px;
+     border: 1px solid black;
+     width: 50%;
+     display: flex;
+      align-items: center;
+}
+
+.product-card img{
+     height: 50px;
+}
+.product-card span{
+    font-size: larger;
+}
+.product-card .left {
+    width: 100%;
+ display: flex;
+ justify-content: end;
+ padding-right: 30px;
+}
+.title{
+    min-width: 60%;
+}
+
+.product-card button{
+    width: 100px;
+    height: 40px;
+    font-size: large;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+}
+.product-card button:hover{
+    outline-offset: 2px;
+    outline: 1px solid black;
+}
+
+.product-card:hover{
+    
+    outline: 2px solid black;
 }

@@ -2,11 +2,11 @@ import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Contact from "./Pages/Contact";
 import ErrorPage from "./Pages/ErrorPage"
 import Header from "./components/Header";
 export default function App() {
   const Products = lazy(() => import("./Pages/Products"));
+  const Contact= lazy(() => import("./Pages/Contact"));
   return (
     <div>
       <Header />
